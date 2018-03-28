@@ -254,6 +254,7 @@ function changeSongName() {
     if (testPart.value == "Test1") {
         if (learning > 3) {
             learning = 0
+            console.log("Test Learning numer:" + learning)
             openTest()
         }
         else
@@ -265,6 +266,7 @@ function changeSongName() {
 
 function openTest() {
     console.log("open test")
+    learning = 0
     var testPart = document.getElementById("testPart")
     if (testPart.value == "Test1") {
         document.getElementById("ilP2a").style.display = "block"
