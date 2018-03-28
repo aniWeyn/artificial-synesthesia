@@ -1,0 +1,36 @@
+.navAS{
+margin-bottom: 20px;
+
+}
+
+.bodyAS{
+    margin-top: 40px;
+}
+
+.ilP1{
+    /*display: none;*/
+}
+
+.ilP2{
+    display: none;
+}
+
+.ilP3{
+   display: none;
+}
+
+.ilP1T{
+    display: none;
+}
+
+.ilP2T{
+    display: none;
+}
+
+.ilP3T{
+    display: none;
+}
+
+#ilP1T-title{
+    display: none;
+}

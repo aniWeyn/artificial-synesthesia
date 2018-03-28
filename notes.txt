@@ -1,0 +1,2 @@
+if user click next 
+hide class blabla
