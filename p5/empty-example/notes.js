@@ -253,6 +253,7 @@ function changeSongName() {
     }
     if (testPart.value == "Test1") {
         if (learning > 3) {
+            learning = 0
             openTest()
         }
         else
