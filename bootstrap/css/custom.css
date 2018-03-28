@@ -31,6 +31,38 @@ margin-bottom: 20px;
     display: none;
 }
 
+#ilP2-title{
+    display: none;
+}
+
+#ilP3-title{
+    display: none;
+}
+
 #ilP1T-title{
     display: none;
+}
+
+#ilP2T-title{
+    display: none;
+}
+
+#ilP3T-title{
+    display: none;
+}
+
+#p4{
+    visibility: hidden; 
+}
+
+#p5{
+    visibility: hidden; 
+}
+
+#m6{
+    visibility: hidden; 
+}
+
+#M6{
+    visibility: hidden; 
 }

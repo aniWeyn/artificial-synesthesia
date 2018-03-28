@@ -1,5 +1,6 @@
 // The midi notes of a scale
 var notes = [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72];
+            //0c, 1c#, 2d, 3d#, 4e, 5f, 6f#, 7g, 8g#, 9a, 10bb, 11b, 12c
 
 // For automatically playing the song
 var index = 0;
@@ -21,19 +22,22 @@ var perfectFourth = [
 
 var perfectFifth = [
     { note: 0, duration: 200, display: "C" },
-    { note: 6, duration: 400, display: "G" },
+    { note: 7, duration: 400, display: "G" },
 ];
 
 var minorSixth = [
     { note: 0, duration: 200, display: "C" },
-    { note: 3, duration: 400, display: "D#" },
+    { note: 8, duration: 400, display: "D#" },
 ];
 
 var majorSixth = [
     { note: 0, duration: 200, display: "C" },
-    { note: 4, duration: 400, display: "E" },
+    { note: 9, duration: 400, display: "E" },
 ];
 
+var notesNamesL1 = ["Perfect Fourth", "Perfect Fifth", "Minor Sixth", "Major Sixth"];
+var songNamesL1 = ["perfectFourth", "perfectFifth", "minorSixth", "majorSixth"];
+var shuffledSongs = [];
 var results = [];
 
 var trigger = 0;
@@ -47,6 +51,10 @@ window.onload = function () {
     document.getElementById("btnPlay").onclick = function () { playNoteOnClick() };
     document.getElementById("btnNext").onclick = function () { changeSongName() };
     document.getElementById("btnTest").onclick = function () { openTest() };
+    document.getElementById("p4").onclick = function () { saveResult("p4") };
+    document.getElementById("p5").onclick = function () { saveResult("p5") };
+    document.getElementById("m6").onclick = function () { saveResult("m6") };
+    document.getElementById("M6").onclick = function () { saveResult("M6") };
 }
 function setup() {
     // A triangle oscillator
@@ -192,16 +200,13 @@ function draw() {
 }
 
 function learning1() {
-    var notesNames = ["Perfect Fourth", "Perfect Fifth", "Minor Sixth", "Major Sixth"];
-    var songNames = ["perfectFourth", "perfectFifth", "minorSixth", "majorSixth"];
-
     //for (var i = 0; i < notesNames.length; i++) {
-    songName = songNames[learning]
+    songName = songNamesL1[learning]
     console.log(songName)
-    title = notesNames[learning]
+    title = notesNamesL1[learning]
     console.log(title)
     var titleHtml = document.getElementById("ilP1-title");
-    titleHtml.textContent = notesNames[learning]
+    titleHtml.textContent = notesNamesL1[learning]
     //draw()
     //}
 }
@@ -224,15 +229,12 @@ function learning2() {
 }
 
 function test1() {
+
     var notesNames = ["Question 1", "Question 2", "Question 3", "Question 4"];
-    var songNames = ["perfectFourth", "perfectFifth", "minorSixth", "majorSixth"];
-    shuffle(songNames, true);
-    print(songNames);
 
-    results = results + songNames
-
-    songName = songNames[learning]
-    console.log(songName)
+    songName = shuffledSongs[learning]
+    console.log("Shuffled songs from test1 "+shuffledSongs)
+    console.log("Song name from test1 "+songName)
     title = notesNames[learning]
     console.log(title)
     var titleHtml = document.getElementById("ilP1T-title");
@@ -241,22 +243,51 @@ function test1() {
 
 function changeSongName() {
     learning = learning + 1
-    console.log(learning)
-    if (learning > 3) {
-        learning = 0
-    }
+    console.log("Learning numer:" + learning)
 
     if (testPart.value == "Learning1") {
+        if (learning > 3) {
+            learning = 0
+        }
         learning1()
     }
     if (testPart.value == "Test1") {
-        test1()
+        if (learning > 3) {
+            openTest()
+        }
+        else
+        {
+            test1()
+        }
     }
 }
 
 function openTest() {
     console.log("open test")
     var testPart = document.getElementById("testPart")
+    if (testPart.value == "Test1") {
+        document.getElementById("ilP2a").style.display = "block"
+        document.getElementById("ilP2b").style.display = "block"
+        document.getElementById("ilP2c").style.display = "block"
+        document.getElementById("ilP2T-title").style.display = "block"
+
+        document.getElementById("btnTest").style.display = "block"
+        document.getElementById("btnNext").style.display = "block"
+
+        document.getElementById("ilP1Ta").style.display = "none"
+        document.getElementById("ilP1Tb").style.display = "none"
+        document.getElementById("ilP1T-title").style.display = "none"
+
+        document.getElementById("p4").style.visibility = "hidden"
+        document.getElementById("p5").style.visibility = "hidden"
+        document.getElementById("m6").style.visibility = "hidden"
+        document.getElementById("M6").style.visibility = "hidden"
+
+        document.getElementById("testPart").value = "Learning2"
+
+        shuffledSongs = shuffleSongs(songNamesL1)
+        lerning2()
+    }
 
     if (testPart.value == "Learning1") {
         document.getElementById("intro").style.display = "none"
@@ -265,15 +296,25 @@ function openTest() {
         document.getElementById("ilP1b").style.display = "none"
         document.getElementById("ilP1-title").style.display = "none"
         document.getElementById("btnTest").style.display = "none"
+        document.getElementById("btnNext").style.display = "none"
 
         document.getElementById("ilP1Ta").style.display = "block"
         document.getElementById("ilP1Tb").style.display = "block"
         document.getElementById("ilP1T-title").style.display = "block"
 
-        document.getElementById("testPart").value = "Test1"
+        document.getElementById("p4").style.visibility = "visible"
+        document.getElementById("p5").style.visibility = "visible"
+        document.getElementById("m6").style.visibility = "visible"
+        document.getElementById("M6").style.visibility = "visible"
 
+        document.getElementById("testPart").value = "Test1"
+        results[results.length] = "Test1"
+
+        shuffledSongs = shuffleSongs(songNamesL1)
         test1()
     }
+
+
 }
 
 function createJson(){
@@ -285,6 +326,24 @@ function createJson(){
     json.test = document.getElementById("testPart").value
 
     saveJSON(json, 'lion.json');
+}
+
+function saveResult(answer){
+    results[results.length] = answer
+    console.log("result:" +results)
+
+    changeSongName()
+}
+
+function shuffleSongs(songsArray)
+{
+    console.log("shuffling songs")
+    shuffledSongs = shuffle(songsArray, true);
+    print(shuffledSongs);
+
+    results[results.length] = shuffledSongs
+
+    return shuffledSongs
 }
 // When we click
 //function mousePressed() {
