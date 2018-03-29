@@ -66,3 +66,16 @@ margin-bottom: 20px;
 #M6{
     visibility: hidden; 
 }
+
+#m3{
+    visibility: hidden; 
+}
+
+#M3{
+    visibility: hidden; 
+}
+
+.btn{
+    background-image: none !important;
+    text-shadow: none !important;
+}

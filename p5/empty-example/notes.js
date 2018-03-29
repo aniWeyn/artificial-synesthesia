@@ -62,6 +62,8 @@ window.onload = function () {
     document.getElementById("p5").onclick = function () { saveResult("p5") };
     document.getElementById("m6").onclick = function () { saveResult("m6") };
     document.getElementById("M6").onclick = function () { saveResult("M6") };
+    document.getElementById("m3").onclick = function () { saveResult("m3") };
+    document.getElementById("M3").onclick = function () { saveResult("M3") };
 }
 function setup() {
     // A triangle oscillator
@@ -248,6 +250,19 @@ function test1() {
     titleHtml.textContent = notesNames[learning]
 }
 
+function test2() {
+
+    var notesNames = ["Question 1", "Question 2", "Question 3", "Question 4"];
+
+    songName = shuffledSongs[learning]
+    console.log("Shuffled songs from test2 "+shuffledSongs)
+    console.log("Song name from test2 "+songName)
+    title = notesNames[learning]
+    console.log(title)
+    var titleHtml = document.getElementById("ilP2T-title");
+    titleHtml.textContent = notesNames[learning]
+}
+
 function changeSongName() {
     learning = learning + 1
     console.log("Learning numer:" + learning)
@@ -276,50 +291,56 @@ function changeSongName() {
             test1()
         }
     }
+    if (testPart.value == "Test2") {
+        if (learning > 3) {
+            learning = 0
+            console.log("Test Learning numer:" + learning)
+            openTest()
+        }
+        else
+        {
+            test2()
+        }
+    }
 }
 
 function openTest() {
     console.log("open test")
     learning = 0
     var testPart = document.getElementById("testPart")
-    if (testPart.value == "Learning12") {
+    if (testPart.value == "Learning2") {
         document.getElementById("ilP2a").style.display = "none"
         document.getElementById("ilP2b").style.display = "none"
         document.getElementById("ilP2c").style.display = "none"
         document.getElementById("ilP2-title").style.display = "none"
+        document.getElementById("ilP2-color").style.display = "none"
 
         document.getElementById("btnTest").style.display = "none"
         document.getElementById("btnNext").style.display = "none"
 
-        document.getElementById("ilP2Ta").style.display = "none"
-        document.getElementById("ilP2Tb").style.display = "none"
-        document.getElementById("ilP2T-title").style.display = "none"
+        document.getElementById("ilP2Ta").style.display = "block"
+        document.getElementById("ilP2Tb").style.display = "block"
+        document.getElementById("ilP2T-title").style.display = "block"
 
         document.getElementById("p4").style.visibility = "visible"
         document.getElementById("p5").style.visibility = "visible"
-        document.getElementById("m6").style.visibility = "visible"
-        document.getElementById("M6").style.visibility = "visible"
+        document.getElementById("m3").style.visibility = "visible"
+        document.getElementById("M3").style.visibility = "visible"
+        document.getElementById("p4").style.backgroundColor = 'rgb(246, 135, 46)'
+        document.getElementById("p5").style.backgroundColor = 'rgb(180, 3, 24)'
+        document.getElementById("m3").style.backgroundColor = 'rgb(70, 133, 191)'
+        document.getElementById("M3").style.backgroundColor = 'rgb(154, 231, 118)'
+        document.getElementById("m6").style.display = "none"
+        document.getElementById("M6").style.display = "none"
 
-        //0000000000000
-        document.getElementById("intro").style.display = "none"
-        document.getElementById("introb").style.display = "none"
-
-        document.getElementById("ilP1a").style.display = "none"
-        document.getElementById("ilP1b").style.display = "none"
-        document.getElementById("ilP1-title").style.display = "none"
         document.getElementById("btnTest").style.display = "none"
         document.getElementById("btnNext").style.display = "none"
-
-        document.getElementById("ilP1Ta").style.display = "block"
-        document.getElementById("ilP1Tb").style.display = "block"
-        document.getElementById("ilP1T-title").style.display = "block"
-        //0000000
 
         document.getElementById("testPart").value = "Test2"
         results[results.length] = "Test2"
 
         shuffledSongs = shuffleSongs(songNamesL2)
-        test1()
+        test2()
     }
 
     if (testPart.value == "Test1") {
