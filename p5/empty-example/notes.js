@@ -37,6 +37,12 @@ var majorSixth = [
 
 var notesNamesL1 = ["Perfect Fourth", "Perfect Fifth", "Minor Sixth", "Major Sixth"];
 var songNamesL1 = ["perfectFourth", "perfectFifth", "minorSixth", "majorSixth"];
+var notesNamesL2 = ["Minor Third", "Major Third","Perfect Fourth", "Perfect Fifth"];
+var songNamesL2 = ["minorThird", "majorThird","perfectFourth", "perfectFifth"];
+var colorNamesL2 = [70, 133, 191, 154, 231, 118, 246, 135, 46, 180, 3, 24];
+// 0, 1, 2 !! 3, 4, 5, !! 6, 7, 8 !! 9, 10, 11
+// 0, 0+1, 0+2 !! 1
+
 var shuffledSongs = [];
 var results = [];
 
@@ -46,6 +52,7 @@ var osc;
 var songName = "minorThird"
 var title = ""
 var learning = 0
+var colorCounter = 0
 
 window.onload = function () {
     document.getElementById("btnPlay").onclick = function () { playNoteOnClick() };
@@ -212,20 +219,20 @@ function learning1() {
 }
 
 function learning2() {
-    var notesNames = ["Perfect Fourth", "Perfect Fifth", "Minor Sixth", "Major Sixth"];
-    var songNames = ["perfectFourth", "perfectFifth", "minorSixth", "majorSixth"];
-
-    songName = songNames[learning]
+    songName = songNamesL2[learning]
     console.log(songName)
-    title = notesNames[learning]
+    title = notesNamesL2[learning]
     console.log(title)
-    var titleHtml = document.getElementById("ilP1-title");
-    titleHtml.textContent = notesNames[learning]
+    var titleHtml = document.getElementById("ilP2-title");
+    titleHtml.textContent = notesNamesL2[learning]
 
     var myCanvas = createCanvas(640, 480);
     myCanvas.parent('ilP2-color');
 
-    background(220, 180, 200);
+    background(colorNamesL2[colorCounter], colorNamesL2[colorCounter+1], colorNamesL2[colorCounter+2]);
+    var titleColor = "rgb("+colorNamesL2[colorCounter]+","+colorNamesL2[colorCounter+1]+","+colorNamesL2[colorCounter+2]+")"
+    document.getElementById("ilP2-title").style.color =  titleColor;
+    colorCounter = colorCounter+3
 }
 
 function test1() {
@@ -251,6 +258,13 @@ function changeSongName() {
         }
         learning1()
     }
+    if (testPart.value == "Learning2") {
+        if (learning > 3) {
+            learning = 0
+            colorCounter = 0
+        }
+        learning2()
+    }
     if (testPart.value == "Test1") {
         if (learning > 3) {
             learning = 0
@@ -268,11 +282,51 @@ function openTest() {
     console.log("open test")
     learning = 0
     var testPart = document.getElementById("testPart")
+    if (testPart.value == "Learning12") {
+        document.getElementById("ilP2a").style.display = "none"
+        document.getElementById("ilP2b").style.display = "none"
+        document.getElementById("ilP2c").style.display = "none"
+        document.getElementById("ilP2-title").style.display = "none"
+
+        document.getElementById("btnTest").style.display = "none"
+        document.getElementById("btnNext").style.display = "none"
+
+        document.getElementById("ilP2Ta").style.display = "none"
+        document.getElementById("ilP2Tb").style.display = "none"
+        document.getElementById("ilP2T-title").style.display = "none"
+
+        document.getElementById("p4").style.visibility = "visible"
+        document.getElementById("p5").style.visibility = "visible"
+        document.getElementById("m6").style.visibility = "visible"
+        document.getElementById("M6").style.visibility = "visible"
+
+        //0000000000000
+        document.getElementById("intro").style.display = "none"
+        document.getElementById("introb").style.display = "none"
+
+        document.getElementById("ilP1a").style.display = "none"
+        document.getElementById("ilP1b").style.display = "none"
+        document.getElementById("ilP1-title").style.display = "none"
+        document.getElementById("btnTest").style.display = "none"
+        document.getElementById("btnNext").style.display = "none"
+
+        document.getElementById("ilP1Ta").style.display = "block"
+        document.getElementById("ilP1Tb").style.display = "block"
+        document.getElementById("ilP1T-title").style.display = "block"
+        //0000000
+
+        document.getElementById("testPart").value = "Test2"
+        results[results.length] = "Test2"
+
+        shuffledSongs = shuffleSongs(songNamesL2)
+        test1()
+    }
+
     if (testPart.value == "Test1") {
         document.getElementById("ilP2a").style.display = "block"
         document.getElementById("ilP2b").style.display = "block"
         document.getElementById("ilP2c").style.display = "block"
-        document.getElementById("ilP2T-title").style.display = "block"
+        document.getElementById("ilP2-title").style.display = "block"
 
         document.getElementById("btnTest").style.display = "block"
         document.getElementById("btnNext").style.display = "block"
@@ -288,12 +342,12 @@ function openTest() {
 
         document.getElementById("testPart").value = "Learning2"
 
-        shuffledSongs = shuffleSongs(songNamesL1)
-        lerning2()
+        learning2()
     }
 
     if (testPart.value == "Learning1") {
         document.getElementById("intro").style.display = "none"
+        document.getElementById("introb").style.display = "none"
 
         document.getElementById("ilP1a").style.display = "none"
         document.getElementById("ilP1b").style.display = "none"
