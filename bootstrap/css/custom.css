@@ -8,7 +8,7 @@ margin-bottom: 20px;
 }
 
 .ilP1{
-    /*display: none;*/
+    display: none;
 }
 
 .ilP2{
@@ -17,6 +17,10 @@ margin-bottom: 20px;
 
 .ilP3{
    display: none;
+}
+
+.ilP0T{
+    display: none;
 }
 
 .ilP1T{
@@ -31,11 +35,18 @@ margin-bottom: 20px;
     display: none;
 }
 
+#ilP1-title{
+    display: none;
+}
+
 #ilP2-title{
     display: none;
 }
 
 #ilP3-title{
+    display: none;
+}
+#ilP0T-title{
     display: none;
 }
 
@@ -75,7 +86,23 @@ margin-bottom: 20px;
     visibility: hidden; 
 }
 
+#m7{
+    visibility: hidden; 
+}
+
+#M7{
+    visibility: hidden; 
+}
+
 .btn{
     background-image: none !important;
     text-shadow: none !important;
+}
+
+#ilP3Tb-pictures{
+    display: none;
+}
+
+#btnTest{
+    display: none;
 }

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Bootstrap 101 Template</title>
+    <title>Artifical syneshesia.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" maximum-scale=1.0, user-scalable=0>
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -62,6 +62,14 @@
         <h2 id="intro">Intervals learning</h2>
         <p id="introb">In this part you will learn to recognize few basic music interavls. An interval is a distance between two notes.
         </p>
+        <h2 class="ilP0" id="ilP0a">Intevals learning - Part 0</h2>
+        <p class="ilP0" id="ilP0b"> In the first part you will learn to recognize Perfect Fourth and Perfect Fifth</p>
+        <h3 id="ilP0-title">title</h3>
+        <h2 class="ilP0T" id="ilP0Ta">Intevals learning - Test 0</h2>
+        <p class="ilP0T" id="ilP0Tb"> Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
+        <h3 id="ilP0T-title">title</h3>
+
+        
         <h2 class="ilP1" id="ilP1a">Intevals learning - Part 1</h2>
         <p class="ilP1" id="ilP1b"> In the first part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Sixth and Major Sixth </p>
         <h3 id="ilP1-title">title</h3>
@@ -80,14 +88,24 @@
         <p class="ilP2T" id="ilP2Tb">Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
         <h3 id="ilP2T-title">title</h3>
 
-        <h2 class="ilP3" id="ilP1a">Intevals learning - Part 3</h2>
-        <p class="ilP3" id="ilP1a">In the first part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Third and Major Third. </p>
-        <p class="ilP3" id="ilP1a">To support learning process to intervals will be represented also by picture of animal. Try to use this association.</p>
+        <h2 class="ilP3" id="ilP3a">Intevals learning - Part 3</h2>
+        <p class="ilP3" id="ilP3b">In the first part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Third and Major Third. </p>
+        <p class="ilP3" id="ilP3c">To support learning process to intervals will be represented also by picture of animal. Try to use this association.</p>
         <h3 id="ilP3-title">title</h3>
-        <div id='ilP3-picture' id="ilP1a"></div>
-        <h2 class="ilP3T" id="ilP1a">Intevals learning - Test 2</h2>
+        <div id='ilP3-picture'></div>
+        <h2 class="ilP3T" id="ilP3Ta">Intevals learning - Test 3</h2>
         <h3 id="ilP3T-title">title</h3>
-        <p class="ilP3T" id="ilP1a">Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
+        <p class="ilP3T" id="ilP3Tb">Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
+        <div class="col-md-12" id="ilP3Tb-pictures">
+            <div class="col-md-3" id='p4-answ'>
+                <img src="/bootstrap/img/perfectFourth.jpg" height="100" width="100">Perfect Fourth</div>
+            <div class="col-md-3" id='p5-answ'>
+                <img src="/bootstrap/img/perfectFifth.jpg" height="100" width="100">Perfect Fifth</div>
+            <div class="col-md-3" id='m7-answ'>
+                <img src="/bootstrap/img/minorSeventh.jpg" height="100" width="100">Minor Seventh</div>
+            <div class="col-md-3" id='M7-answ'>
+                <img src="/bootstrap/img/majorSeventh.jpg" height="100" width="100">Major Seventh</div>
+        </div>
         <div class="col-md-12">
             <div class="btn-group">
                 <button class="btn" id="p4" aria-disabled="false">Perfect Fourth</button>
@@ -96,6 +114,8 @@
                 <button class="btn" id="M6" aria-disabled="false">Major Sixth</button>
                 <button class="btn" id="m3" aria-disabled="false">Minor Third</button>
                 <button class="btn" id="M3" aria-disabled="false">Major Third</button>
+                <button class="btn" id="m7" aria-disabled="false">Minor Seventh</button>
+                <button class="btn" id="M7" aria-disabled="false">Major Seventh</button>
             </div>
             <br>
             <div class="col-md-12">
@@ -109,7 +129,7 @@
             </div>
         </div>
     </div>
-    <input type="hidden" name="test" value="Learning1" id="testPart">
+    <input type="hidden" name="test" value="Learning0" id="testPart">
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
