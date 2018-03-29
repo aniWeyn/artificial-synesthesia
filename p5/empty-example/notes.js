@@ -74,6 +74,7 @@ window.onload = function () {
     document.getElementById("btnPlay").onclick = function () { playNoteOnClick() };
     document.getElementById("btnNext").onclick = function () { changeSongName() };
     document.getElementById("btnTest").onclick = function () { openTest() };
+    document.getElementById("btnAgree").onclick = function () { startTest() };
     document.getElementById("p4").onclick = function () { saveResult("p4") };
     document.getElementById("p5").onclick = function () { saveResult("p5") };
     document.getElementById("m6").onclick = function () { saveResult("m6") };
@@ -623,14 +624,9 @@ function shuffleSongs(songsArray) {
 
     return shuffledSongs
 }
-// When we click
-//function mousePressed() {
-    // Map mouse to the key index
-    //var key = floor(map(mouseX, 0, width, 0, notes.length));
-    //playNote(notes[key]);
-//}
 
-// Fade it out when we release
-//function mouseReleased() {
-  //  osc.fade(0, 1);
-//}
+
+function startTest(){
+    document.getElementById("consent").style.display = "none"
+    document.getElementById("test").style.visibility = "visible"
+}

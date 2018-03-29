@@ -30,26 +30,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="brand" href="index.html">Artifical syneshesia.</a>
+                <a class="brand" href="#">Artifical syneshesia.</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li class="active">
-                            <a href="test1A.html">Test 1A</a>
-                        </li>
-                        <li>
-                            <a href="test1B.html">Test 1B</a>
-                        </li>
-                        <li>
-                            <a href="test2A.html">Test 2A</a>
-                        </li>
-                        <li>
-                            <a href="test2B.html">Test 2B</a>
-                        </li>
-                        <li>
-                            <a href="test3A.html">Test 3A</a>
-                        </li>
-                        <li>
-                            <a href="test3B.html">Test 3B</a>
+                            <a href="#">Test 1A</a>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +43,38 @@
         </div>
     </div>
 
-    <div class="container bodyAS">
+    <div class="container consent bodyAS" id="consent">
+            <h2>Written Information and Informed Consent Form The study "Artifical syneshesia. Can color support interval recognition learning process?"</h2>
+            <h3>Objective</h3>
+            <p>Ability to recognize musical intervals (distance between two notes) is a useful skill which might be trained. 
+              Some people are able to connect music sounds with colors or others senses. This connection might concerns single notes, chords, key etc.
+              This research is trying to check will music interval supported by displayed color or picture be easier to remeber. 
+              This study is conducted by a Master student at NTNU in Gjøvik and is a part of one of the mandatory courses - IMT4315 Color in Interface Design (spring 2018).
+            </p>
+            <h3>Procedure</h3>
+            <p>During the test will be presented four short learning parts 
+              where you will be introduced to a basic intervals. The intervals consist of two notes. 
+              All intervals starts from the same note and differ from each other by second note.
+              In some learning parts intervals are connected to the colors or pictures. 
+              You are encouraged to use that knowledge. 
+              After each learning part there will be short test consisted from 8 questions 
+              where you will need to recognize interval. 
+              After finishing test you might be ask to send back received JSON file.</p>
+            <h3>Duration</h3>
+            <p>10-15 minutes</p>
+            <h3>Confidentality</h3>
+            <p>Your score will be save into JSON file. Participants will be distinguish by date-time stamp and they will be anonimous. </p>
+            <h3>Freedom to withdraw</h3>
+            <p>You may withdraw from the research at any time by closing browser or tab.</p>
+            <h3>Contact</h3>
+            <p>Any question might be answered after mail contact: sabinan@stud.ntnu.no</p>
+            <h3>Declaration of consent</h3>
+            <p>By participating in a study you are confirming that you have read the information and that you are aware that participation is voluntary.</p>
+            <div class="btn-group">
+                    <button class="btn btn-success" id="btnAgree" aria-disabled="false">I agree, go to the study</button>
+            </div>       
+    </div>
+    <div class="container test bodyAS" id="test">
         <h2 id="intro">Intervals learning</h2>
         <p id="introb">In this part you will learn to recognize few basic music interavls. An interval is a distance between two notes.
         </p>

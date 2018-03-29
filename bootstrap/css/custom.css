@@ -106,3 +106,7 @@ margin-bottom: 20px;
 #btnTest{
     display: none;
 }
+
+.test{
+    visibility: hidden; 
+}
