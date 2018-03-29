@@ -91,10 +91,10 @@ function setup() {
     osc.amp(0);
 
     learning0()
-    majorSeventhImg = loadImage("/bootstrap/img/majorSeventh.jpg");
-    minorSeventhImg = loadImage("/bootstrap/img/minorSeventh.jpg");
-    perfectFourthImg = loadImage("/bootstrap/img/perfectFourth.jpg");
-    perfectFifthImg = loadImage("/bootstrap/img/perfectFifth.jpg");
+    majorSeventhImg = loadImage("/artificial-synesthesia/bootstrap/img/majorSeventh.jpg");
+    minorSeventhImg = loadImage("/artificial-synesthesia/bootstrap/img/minorSeventh.jpg");
+    perfectFourthImg = loadImage("/artificial-synesthesia/bootstrap/img/perfectFourth.jpg");
+    perfectFifthImg = loadImage("/artificial-synesthesia/bootstrap/img/perfectFifth.jpg");
 }
 
 function playNoteOnClick() {
@@ -431,10 +431,6 @@ function openTest() {
         document.getElementById("p5").style.visibility = "visible"
         document.getElementById("m7").style.visibility = "visible"
         document.getElementById("M7").style.visibility = "visible"
-        document.getElementById("p4").style.backgroundImage = '/artificial-synesthesia/bootstrap/img/perfectFourth.jpg'
-        document.getElementById("p5").style.backgroundImage = '/artificial-synesthesia/bootstrap/img/perfectFifth.jpg'
-        document.getElementById("m7").style.backgroundImage = '/artificial-synesthesia/bootstrap/img/minorSeventh.jpg"'
-        document.getElementById("M7").style.backgroundImage = '/artificial-synesthesia/bootstrap/img/majorSeventh.jpg'
 
         document.getElementById("m3").style.display = "none"
         document.getElementById("M3").style.display = "none"
