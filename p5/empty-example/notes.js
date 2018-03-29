@@ -104,6 +104,15 @@ function playNoteOnClick() {
         index = 0;
         autoplay = true;
     }
+
+    if (testPart.value == "Test0" ||
+    testPart.value == "Test1" ||
+    testPart.value == "Test2" ||
+    testPart.value == "Test3") {
+        document.getElementById("answersButtons").style.display = "block"
+        document.getElementById("answersHeader").style.display = "block"
+}
+
 }
 
 function playNote(note, duration) {
@@ -416,18 +425,12 @@ function openTest() {
     learning = 0
     var testPart = document.getElementById("testPart")
     if (testPart.value == "Learning3") {
-        document.getElementById("ilP3a").style.display = "none"
-        document.getElementById("ilP3b").style.display = "none"
-        document.getElementById("ilP3c").style.display = "none"
-        document.getElementById("ilP3-title").style.display = "none"
-        document.getElementById("ilP3-picture").style.display = "none"
+        document.getElementById("ilP3").style.display = "none"
+
         document.getElementById("btnTest").style.display = "none"
         document.getElementById("btnNext").style.display = "none"
 
-        document.getElementById("ilP3Ta").style.display = "block"
-        document.getElementById("ilP3Tb").style.display = "block"
-        document.getElementById("ilP3T-title").style.display = "block"
-        document.getElementById("ilP3Tb-pictures").style.display = "block"
+        document.getElementById("ilP3T").style.display = "block"
 
         document.getElementById("p4").style.visibility = "visible"
         document.getElementById("p5").style.visibility = "visible"
@@ -444,16 +447,10 @@ function openTest() {
         test3()
     }
     if (testPart.value == "Test2") {
-        document.getElementById("ilP3a").style.display = "block"
-        document.getElementById("ilP3b").style.display = "block"
-        document.getElementById("ilP3c").style.display = "block"
-        document.getElementById("ilP3-title").style.display = "block"
-        document.getElementById("ilP3-picture").style.display = "block"
+        document.getElementById("ilP3").style.display = "block"
         document.getElementById("btnNext").style.display = "inline"
 
-        document.getElementById("ilP2Ta").style.display = "none"
-        document.getElementById("ilP2Tb").style.display = "none"
-        document.getElementById("ilP2T-title").style.display = "none"
+        document.getElementById("ilP2T").style.display = "none"
 
         document.getElementById("p4").style.visibility = "hidden"
         document.getElementById("p5").style.visibility = "hidden"
@@ -463,6 +460,11 @@ function openTest() {
         document.getElementById("p5").style.backgroundColor = ''
         document.getElementById("m3").style.backgroundColor = ''
         document.getElementById("M3").style.backgroundColor = ''
+        document.getElementById("p4").style.color = ''
+        document.getElementById("p5").style.color = ''
+        document.getElementById("m3").style.color = ''
+        document.getElementById("M3").style.color = ''
+        document.getElementById("answersHeader").style.display = "none"
 
 
         document.getElementById("testPart").value = "Learning3"
@@ -471,18 +473,12 @@ function openTest() {
         learning3()
     }
     if (testPart.value == "Learning2") {
-        document.getElementById("ilP2a").style.display = "none"
-        document.getElementById("ilP2b").style.display = "none"
-        document.getElementById("ilP2c").style.display = "none"
-        document.getElementById("ilP2-title").style.display = "none"
-        document.getElementById("ilP2-color").style.display = "none"
+        document.getElementById("ilP2").style.display = "none"
 
         document.getElementById("btnTest").style.display = "none"
         document.getElementById("btnNext").style.display = "none"
 
-        document.getElementById("ilP2Ta").style.display = "block"
-        document.getElementById("ilP2Tb").style.display = "block"
-        document.getElementById("ilP2T-title").style.display = "block"
+        document.getElementById("ilP2T").style.display = "block"
 
         document.getElementById("p4").style.visibility = "visible"
         document.getElementById("p5").style.visibility = "visible"
@@ -492,6 +488,10 @@ function openTest() {
         document.getElementById("p5").style.backgroundColor = 'rgb(180, 3, 24)'
         document.getElementById("m3").style.backgroundColor = 'rgb(70, 133, 191)'
         document.getElementById("M3").style.backgroundColor = 'rgb(154, 231, 118)'
+        document.getElementById("p4").style.color = 'white'
+        document.getElementById("p5").style.color = 'white'
+        document.getElementById("m3").style.color = 'white'
+        document.getElementById("M3").style.color = 'white'
         document.getElementById("m6").style.display = "none"
         document.getElementById("M6").style.display = "none"
 
@@ -503,21 +503,18 @@ function openTest() {
     }
 
     if (testPart.value == "Test1") {
-        document.getElementById("ilP2a").style.display = "block"
-        document.getElementById("ilP2b").style.display = "block"
-        document.getElementById("ilP2c").style.display = "block"
-        document.getElementById("ilP2-title").style.display = "block"
+        document.getElementById("ilP2").style.display = "block"
 
         document.getElementById("btnNext").style.display = "inline"
 
-        document.getElementById("ilP1Ta").style.display = "none"
-        document.getElementById("ilP1Tb").style.display = "none"
-        document.getElementById("ilP1T-title").style.display = "none"
+        document.getElementById("ilP1T").style.display = "none"
 
         document.getElementById("p4").style.visibility = "hidden"
         document.getElementById("p5").style.visibility = "hidden"
         document.getElementById("m6").style.visibility = "hidden"
         document.getElementById("M6").style.visibility = "hidden"
+
+        document.getElementById("answersHeader").style.display = "none"
 
         document.getElementById("testPart").value = "Learning2"
 
@@ -528,15 +525,11 @@ function openTest() {
     if (testPart.value == "Learning1") {
 
 
-        document.getElementById("ilP1a").style.display = "none"
-        document.getElementById("ilP1b").style.display = "none"
-        document.getElementById("ilP1-title").style.display = "none"
+        document.getElementById("ilP1").style.display = "none"
         document.getElementById("btnTest").style.display = "none"
         document.getElementById("btnNext").style.display = "none"
 
-        document.getElementById("ilP1Ta").style.display = "block"
-        document.getElementById("ilP1Tb").style.display = "block"
-        document.getElementById("ilP1T-title").style.display = "block"
+        document.getElementById("ilP1T").style.display = "block"
 
         document.getElementById("p4").style.visibility = "visible"
         document.getElementById("p5").style.visibility = "visible"
@@ -551,17 +544,14 @@ function openTest() {
     }
 
     if (testPart.value == "Test0") {
-        document.getElementById("ilP0Ta").style.display = "none"
-        document.getElementById("ilP0Tb").style.display = "none"
-        document.getElementById("ilP0T-title").style.display = "none"
+        document.getElementById("ilP0T").style.display = "none"
 
-        document.getElementById("ilP1a").style.display = "block"
-        document.getElementById("ilP1b").style.display = "block"
-        document.getElementById("ilP1-title").style.display = "block"
+        document.getElementById("ilP1").style.display = "block"
 
         document.getElementById("p4").style.visibility = "hidden"
         document.getElementById("p5").style.visibility = "hidden"
         document.getElementById("btnNext").style.display = "inline"
+        document.getElementById("answersHeader").style.display = "none"
 
         document.getElementById("testPart").value = "Learning1"
 
@@ -570,17 +560,12 @@ function openTest() {
 
     if (testPart.value == "Learning0") {
         document.getElementById("intro").style.display = "none"
-        document.getElementById("introb").style.display = "none"
 
-        document.getElementById("ilP0a").style.display = "none"
-        document.getElementById("ilP0b").style.display = "none"
-        document.getElementById("ilP0-title").style.display = "none"
+        document.getElementById("ilP0").style.display = "none"
         document.getElementById("btnTest").style.display = "none"
         document.getElementById("btnNext").style.display = "none"
 
-        document.getElementById("ilP0Ta").style.display = "block"
-        document.getElementById("ilP0Tb").style.display = "block"
-        document.getElementById("ilP0T-title").style.display = "block"
+        document.getElementById("ilP0T").style.display = "block"
 
         document.getElementById("p4").style.visibility = "visible"
         document.getElementById("p5").style.visibility = "visible"
@@ -609,7 +594,7 @@ function createJson() {
 function saveResult(answer) {
     results[results.length] = answer
     console.log("result:" + results)
-
+    document.getElementById("answersButtons").style.display = "none"
     changeSongName()
 }
 

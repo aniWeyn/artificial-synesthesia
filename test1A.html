@@ -22,59 +22,65 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                  <!-- Brand and toggle get grouped for better mobile display -->
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Artifical syneshesia.</a>
-                  </div>
-              
-                  <!-- Collect the nav links, forms, and other content for toggling -->
-                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                      <li class="active">
-                            <a href="#">Test 1A<span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                  </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-              </nav>
-    <div class="container consent bodyAS" id="consent">
-            <h2>Written Information and Informed Consent Form The study "Artifical syneshesia. Can color support interval recognition learning process?"</h2>
-            <h3>Objective</h3>
-            <p>Ability to recognize musical intervals (distance between two notes) is a useful skill which might be trained. 
-              Some people are able to connect music sounds with colors or others senses. This connection might concerns single notes, chords, key etc.
-              This research is trying to check will music interval supported by displayed color or picture be easier to remeber. 
-              This study is conducted by a Master student at NTNU in Gjøvik and is a part of one of the mandatory courses - IMT4315 Color in Interface Design (spring 2018).
-            </p>
-            <h3>Procedure</h3>
-            <p>During the test will be presented four short learning parts 
-              where you will be introduced to a basic intervals. The intervals consist of two notes. 
-              All intervals starts from the same note and differ from each other by second note.
-              In some learning parts intervals are connected to the colors or pictures. 
-              You are encouraged to use that knowledge. 
-              After each learning part there will be short test consisted from 8 questions 
-              where you will need to recognize interval. 
-              After finishing test you might be ask to send back received JSON file.</p>
-            <h3>Duration</h3>
-            <p>10-15 minutes</p>
-            <h3>Confidentality</h3>
-            <p>Your score will be save into JSON file. Participants will be distinguish by date-time stamp and they will be anonimous. </p>
-            <h3>Freedom to withdraw</h3>
-            <p>You may withdraw from the research at any time by closing browser or tab.</p>
-            <h3>Contact</h3>
-            <p>Any question might be answered after mail contact: sabinan@stud.ntnu.no</p>
-            <h3>Declaration of consent</h3>
-            <p>By participating in a study you are confirming that you have read the information and that you are aware that participation is voluntary.</p>
-            <div class="btn-group">
-                    <button class="btn btn-success btn-lg" id="btnAgree" aria-disabled="false">I agree, go to the study</button>
-            </div>       
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Artifical syneshesia.</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">Test 1A
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container consent" id="consent">
+        <h2>Written Information and Informed Consent Form The study "Artifical syneshesia. Can color support interval recognition
+            learning process?"</h2>
+        <h3>Objective</h3>
+        <p>Ability to recognize musical intervals (distance between two notes) is a useful skill which might be trained. Some
+            people are able to connect music sounds with colors or others senses. This connection might concerns single notes,
+            chords, key etc. This research is trying to check will music interval supported by displayed color or picture
+            be easier to remeber. This study is conducted by a Master student at NTNU in Gjøvik and is a part of one of the
+            mandatory courses - IMT4315 Color in Interface Design (spring 2018).
+        </p>
+        <h3>Procedure</h3>
+        <p>During the test will be presented four short learning parts where you will be introduced to a basic intervals. The
+            intervals consist of two notes. All intervals starts from the same note and differ from each other by second
+            note. In some learning parts intervals are connected to the colors or pictures. You are encouraged to use that
+            knowledge. After each learning part there will be short test consisted from 8 questions where you will need to
+            recognize interval. After finishing test you might be ask to send back received JSON file.</p>
+        <h3>Duration</h3>
+        <p>10-15 minutes</p>
+        <h3>Confidentality</h3>
+        <p>Your score will be save into JSON file. Participants will be distinguish by date-time stamp and they will be anonimous.
+        </p>
+        <h3>Freedom to withdraw</h3>
+        <p>You may withdraw from the research at any time by closing browser or tab.</p>
+        <h3>Contact</h3>
+        <p>Any question might be answered after mail contact: sabinan@stud.ntnu.no</p>
+        <h3>Declaration of consent</h3>
+        <p>By participating in a study you are confirming that you have read the information and that you are aware that participation
+            is voluntary.</p>
+        <div class="btn-group">
+            <button class="btn btn-success btn-lg" id="btnAgree" aria-disabled="false">I agree, go to the study</button>
+        </div>
     </div>
     <!--<div class="container survey">
             <h2>Short survey</h2>
@@ -91,55 +97,95 @@
             do you know what music interval is 
             are you able to name heard music intervals: often, sometimes, never
     </div>-->
-    <div class="container test bodyAS" id="test">
-        <h2 id="intro">Intervals learning</h2>
-        <p id="introb">In this part you will learn to recognize few basic music interavls. An interval is a distance between two notes.
-        </p>
-        <h2 class="ilP0" id="ilP0a">Intevals learning - Part 0</h2>
-        <p class="ilP0" id="ilP0b"> In the first part you will learn to recognize <b>Perfect Fourth</b> and <b>Perfect Fifth</b>. Click button <span class="testInfo"><b>TEST</b></span> after listening all intervals. To listen interval click button <span class="playInfo"><b>PLAY</b></span>. To go to next interval click button <span class="nextInfo"><b>NEXT</b></span>. You are able to play intervals as long as you wish.</p>
-        <h3 id="ilP0-title">title</h3>
-        <h2 class="ilP0T" id="ilP0Ta">Intevals learning - Test 0</h2>
-        <p class="ilP0T" id="ilP0Tb"> Now you will be asked to recognize heared intervals. Please select interval you have heard. To hear interval click button Play. You can click button play as many times as you wish but you can answer to question only once.</p>
-        <h3 id="ilP0T-title">title</h3>
-
-        
-        <h2 class="ilP1" id="ilP1a">Intevals learning - Part 1</h2>
-        <p class="ilP1" id="ilP1b"> In the this part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Sixth and Major Sixth </p>
-        <h3 id="ilP1-title">title</h3>
-        <h2 class="ilP1T" id="ilP1Ta">Intevals learning - Test 1</h2>
-        <p class="ilP1T" id="ilP1Tb"> Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
-        <h3 id="ilP1T-title">title</h3>
-
-
-
-        <h2 class="ilP2" id="ilP2a">Intevals learning - Part 2</h2>
-        <p class="ilP2" id="ilP2b">In the this part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Third and Major Third. </p>
-        <p class="ilP2" id="ilP2c"> To support learning process to intervals will be represented also by color. Try to use this association.</p>
-        <h3 id="ilP2-title">title</h3>
-        <div id='ilP2-color'></div>
-        <h2 class="ilP2T" id="ilP2Ta">Intevals learning - Test 2</h2>
-        <p class="ilP2T" id="ilP2Tb">Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
-        <h3 id="ilP2T-title">title</h3>
-
-        <h2 class="ilP3" id="ilP3a">Intevals learning - Part 3</h2>
-        <p class="ilP3" id="ilP3b">In the this part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Third and Major Third. </p>
-        <p class="ilP3" id="ilP3c">To support learning process to intervals will be represented also by picture of animal. Try to use this association.</p>
-        <h3 id="ilP3-title">title</h3>
-        <div id='ilP3-picture'></div>
-        <h2 class="ilP3T" id="ilP3Ta">Intevals learning - Test 3</h2>
-        <h3 id="ilP3T-title">title</h3>
-        <p class="ilP3T" id="ilP3Tb">Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
-        <div class="col-md-12" id="ilP3Tb-pictures">
-            <div class="col-md-3" id='p4-answ'>
-                <img src="/artificial-synesthesia/bootstrap/img/perfectFourth.jpg" height="100" width="100">Perfect Fourth</div>
-            <div class="col-md-3" id='p5-answ'>
-                <img src="/artificial-synesthesia/bootstrap/img/perfectFifth.jpg" height="100" width="100">Perfect Fifth</div>
-            <div class="col-md-3" id='m7-answ'>
-                <img src="/artificial-synesthesia/bootstrap/img/minorSeventh.jpg" height="100" width="100">Minor Seventh</div>
-            <div class="col-md-3" id='M7-answ'>
-                <img src="/artificial-synesthesia/bootstrap/img/majorSeventh.jpg" height="100" width="100">Major Seventh</div>
+    <div class="container test" id="test">
+        <div class="intro" id="intro">
+            <h2>Intervals learning</h2>
+            <p>In this part you will learn to recognize few basic music interavls. An interval is a distance between two notes.
+            </p>
         </div>
+        <div class="ilP0" id="ilP0">
+            <h2>Intevals learning - Part 0</h2>
+            <p> In the first part you will learn to recognize
+                <b>Perfect Fourth</b> and
+                <b>Perfect Fifth</b>. Click button
+                <span class="testInfo">
+                    <b>TEST</b>
+                </span> after listening all intervals. To listen interval click button
+                <span class="playInfo">
+                    <b>PLAY</b>
+                </span>. To go to next interval click button
+                <span class="nextInfo">
+                    <b>NEXT</b>
+                </span>. You are able to play intervals as long as you wish.</p>
+            <h3 id="ilP0-title">title</h3>
+        </div>
+        <div class="ilP0T" id="ilP0T">
+            <h2>Intevals learning - Test 0</h2>
+            <p> Now you will be asked to recognize heared intervals. Please select interval you have heard. To hear interval
+                click button Play. You can click button play as many times as you wish but you can answer to question only
+                once.
+            </p>
+            <h3 id="ilP0T-title">title</h3>
+        </div>
+        <div class="ilP1" id="ilP1">
+            <h2>Intevals learning - Part 1</h2>
+            <p> In the this part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Sixth and Major Sixth </p>
+            <h3 id="ilP1-title">title</h3>
+        </div>
+        <div class="ilP1T" id="ilP1T">
+            <h2>Intevals learning - Test 1</h2>
+            <p>Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
+            <h3 id="ilP1T-title">title</h3>
+        </div>
+
+
+
+
+        <div class="ilP2" id="ilP2">
+            <h2>Intevals learning - Part 2</h2>
+            <p>In the this part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Third and Major Third. </p>
+            <p> To support learning process to intervals will be represented also by color. Try to use this association.</p>
+            <h3 id="ilP2-title">title</h3>
+            <div id='ilP2-color'></div>
+        </div>
+
+        <div class="ilP2T" id="ilP2T">
+            <h2>Intevals learning - Test 2</h2>
+            <p>Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
+            <h3 id="ilP2T-title">title</h3>
+        </div>
+        <div class="ilP3" id="ilP3">
+            <h2>Intevals learning - Part 3</h2>
+            <p>In the this part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Third and Major Third. </p>
+            <p>To support learning process to intervals will be represented also by picture of animal. Try to use this association.</p>
+            <h3 id="ilP3-title">title</h3>
+            <div id='ilP3-picture'></div>
+        </div>
+        <div class="ilP3T" id="ilP3T">
+            <h2>Intevals learning - Test 3</h2>
+            <h3 id="ilP3T-title">title</h3>
+            <p class="ilP3T" id="ilP3Tb">Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
+            <div class="col-md-12 noLeftPadding" id="ilP3Tb-pictures">
+                <div class="" id='p4-answ'>
+                    <img src="/artificial-synesthesia/bootstrap/img/perfectFourth.jpg" height="100" width="100">Perfect Fourth</div>
+                <div class="" id='p5-answ'>
+                    <img src="/artificial-synesthesia/bootstrap/img/perfectFifth.jpg" height="100" width="100">Perfect Fifth</div>
+                <div class="" id='m7-answ'>
+                    <img src="/artificial-synesthesia/bootstrap/img/minorSeventh.jpg" height="100" width="100">Minor Seventh</div>
+                <div class="" id='M7-answ'>
+                    <img src="/artificial-synesthesia/bootstrap/img/majorSeventh.jpg" height="100" width="100">Major Seventh</div>
+            </div>
+        </div>
+
+
+
         <div class="col-md-12 noLeftPadding">
+            <button class="btn btn-success btn-lg" id="btnPlay" aria-disabled="false">PLAY</button>
+            <button class="btn btn-primary btn-lg" id="btnNext" aria-disabled="false">NEXT</button>
+            <button class="btn btn-warning btn-lg" id="btnTest" aria-disabled="false">TEST</button>
+        </div>
+        <h3 id="answersHeader">Answers:</h3>
+        <div class="col-md-12 noLeftPadding" id="answersButtons">
                 <button class="btn btn-default btn-lg" id="p4" aria-disabled="false">Perfect Fourth</button>
                 <button class="btn btn-default btn-lg" id="p5" aria-disabled="false">Perfect Fifth</button>
                 <button class="btn btn-default btn-lg" id="m6" aria-disabled="false">Minor Sixth</button>
@@ -148,12 +194,7 @@
                 <button class="btn btn-default btn-lg" id="M3" aria-disabled="false">Major Third</button>
                 <button class="btn btn-default btn-lg" id="m7" aria-disabled="false">Minor Seventh</button>
                 <button class="btn btn-default btn-lg" id="M7" aria-disabled="false">Major Seventh</button>
-        </div>
-        <div class="col-md-12 noLeftPadding">
-                <button class="btn btn-success btn-lg" id="btnPlay" aria-disabled="false">PLAY</button>
-                <button class="btn btn-primary btn-lg" id="btnNext" aria-disabled="false">NEXT</button>
-                <button class="btn btn-warning btn-lg" id="btnTest" aria-disabled="false">TEST</button>
-        </div>
+            </div>
     </div>
     <div class="thanks container bodyAS" id="thanks">
         <h2>Thank you!</h2>

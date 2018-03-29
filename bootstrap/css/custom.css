@@ -1,12 +1,3 @@
-.navAS{
-margin-bottom: 20px;
-
-}
-
-.bodyAS{
-    margin-top: 40px;
-}
-
 .ilP1{
     display: none;
 }
@@ -32,33 +23,6 @@ margin-bottom: 20px;
 }
 
 .ilP3T{
-    display: none;
-}
-
-#ilP1-title{
-    display: none;
-}
-
-#ilP2-title{
-    display: none;
-}
-
-#ilP3-title{
-    display: none;
-}
-#ilP0T-title{
-    display: none;
-}
-
-#ilP1T-title{
-    display: none;
-}
-
-#ilP2T-title{
-    display: none;
-}
-
-#ilP3T-title{
     display: none;
 }
 
@@ -99,10 +63,6 @@ margin-bottom: 20px;
     text-shadow: none !important;
 }
 
-#ilP3Tb-pictures{
-    display: none;
-}
-
 #btnTest{
     display: none;
     margin-left: 20px;
@@ -134,4 +94,12 @@ margin-bottom: 20px;
 
 .noLeftPadding{
     padding-left: 0px;
+}
+
+#answersButtons{
+    display: none;
+}
+
+#answersHeader{
+    display: none;
 }
