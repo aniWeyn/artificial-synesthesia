@@ -105,8 +105,33 @@ margin-bottom: 20px;
 
 #btnTest{
     display: none;
+    margin-left: 20px;
 }
 
 .test{
     visibility: hidden; 
+}
+
+#thanks{
+    display: none;
+}
+
+.testInfo{
+    color: #f0ad4e;
+}
+
+.playInfo{
+    color: #4cae4c;
+}
+
+.nextInfo{
+    color: #2e6da4;
+}
+
+.btn-lg{
+    min-width: 200px;
+}
+
+.noLeftPadding{
+    padding-left: 0px;
 }

@@ -336,7 +336,7 @@ function changeSongName() {
         testPart.value == "Learning2" ||
         testPart.value == "Learning3") {
         if (learning > 4) {
-            document.getElementById("btnTest").style.display = "block"
+            document.getElementById("btnTest").style.display = "inline"
         }
     }
 
@@ -403,6 +403,7 @@ function changeSongName() {
             learning = 0
             console.log("Test Learning numer:" + learning)
             createJson()
+            showThanks()
         }
         else {
             test3()
@@ -448,7 +449,7 @@ function openTest() {
         document.getElementById("ilP3c").style.display = "block"
         document.getElementById("ilP3-title").style.display = "block"
         document.getElementById("ilP3-picture").style.display = "block"
-        document.getElementById("btnNext").style.display = "block"
+        document.getElementById("btnNext").style.display = "inline"
 
         document.getElementById("ilP2Ta").style.display = "none"
         document.getElementById("ilP2Tb").style.display = "none"
@@ -494,9 +495,6 @@ function openTest() {
         document.getElementById("m6").style.display = "none"
         document.getElementById("M6").style.display = "none"
 
-        document.getElementById("btnTest").style.display = "none"
-        document.getElementById("btnNext").style.display = "none"
-
         document.getElementById("testPart").value = "Test2"
         results[results.length] = "Test2"
 
@@ -510,7 +508,7 @@ function openTest() {
         document.getElementById("ilP2c").style.display = "block"
         document.getElementById("ilP2-title").style.display = "block"
 
-        document.getElementById("btnNext").style.display = "block"
+        document.getElementById("btnNext").style.display = "inline"
 
         document.getElementById("ilP1Ta").style.display = "none"
         document.getElementById("ilP1Tb").style.display = "none"
@@ -563,7 +561,7 @@ function openTest() {
 
         document.getElementById("p4").style.visibility = "hidden"
         document.getElementById("p5").style.visibility = "hidden"
-        document.getElementById("btnNext").style.display = "block"
+        document.getElementById("btnNext").style.display = "inline"
 
         document.getElementById("testPart").value = "Learning1"
 
@@ -625,6 +623,10 @@ function shuffleSongs(songsArray) {
     return shuffledSongs
 }
 
+function showThanks(){
+    document.getElementById("test").style.display = "none"
+    document.getElementById("thanks").style.display = "block"
+}
 
 function startTest(){
     document.getElementById("consent").style.display = "none"
