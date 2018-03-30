@@ -607,8 +607,6 @@ function showTest1() {
     document.getElementById("M3").style.display = "none"
     document.getElementById("m6").style.display = "inline"
     document.getElementById("M6").style.display = "inline"
-    document.getElementById("m6").style.visibility = "hidden"
-    document.getElementById("M6").style.visibility = "hidden"
 }
 
 function showTest0() {
@@ -691,7 +689,7 @@ function createJson() {
     json.test = results
     json.survey = surveyData
 
-    saveJSON(json, 'lion.json');
+    saveJSON(json, 'testResults.json');
     sendJsonResult(json)
     showThanks()
 

@@ -687,7 +687,7 @@ function createJson() {
     json.test = results
     json.survey = surveyData
 
-    saveJSON(json, 'lion.json');
+    saveJSON(json, 'testResults.json');
     sendJsonResult(json)
     showThanks()
 
