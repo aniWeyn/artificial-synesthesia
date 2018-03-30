@@ -69,6 +69,7 @@ var songName = "minorThird"
 var title = ""
 var learning = 0
 var colorCounter = 0
+var jsonFile = ""
 
 window.onload = function () {
     document.getElementById("btnPlay").onclick = function () { playNoteOnClick() };
@@ -106,12 +107,12 @@ function playNoteOnClick() {
     }
 
     if (testPart.value == "Test0" ||
-    testPart.value == "Test1" ||
-    testPart.value == "Test2" ||
-    testPart.value == "Test3") {
+        testPart.value == "Test1" ||
+        testPart.value == "Test2" ||
+        testPart.value == "Test3") {
         document.getElementById("answersButtons").style.display = "block"
         document.getElementById("answersHeader").style.display = "block"
-}
+    }
 
 }
 
@@ -380,7 +381,7 @@ function changeSongName() {
     if (testPart.value == "Test0") {
         if (learning > 7) {
             learning = 0
-            console.log("Test Learning numer:" + learning)
+            console.log("Test0 Learning numer:" + learning)
             openTest()
         }
         else {
@@ -390,8 +391,8 @@ function changeSongName() {
     if (testPart.value == "Test1") {
         if (learning > 7) {
             learning = 0
-            console.log("Test Learning numer:" + learning)
-            openTest()
+            console.log("Test1 Learning numer:" + learning)
+openTest()
         }
         else {
             test1()
@@ -400,8 +401,9 @@ function changeSongName() {
     if (testPart.value == "Test2") {
         if (learning > 7) {
             learning = 0
-            console.log("Test Learning numer:" + learning)
-            openTest()
+            console.log("Test2 Learning numer:" + learning)
+            createJson()
+            showThanks()
         }
         else {
             test2()
@@ -410,9 +412,8 @@ function changeSongName() {
     if (testPart.value == "Test3") {
         if (learning > 7) {
             learning = 0
-            console.log("Test Learning numer:" + learning)
-            createJson()
-            showThanks()
+            console.log("Test3 Learning numer:" + learning)
+            openTest()
         }
         else {
             test3()
@@ -424,76 +425,19 @@ function openTest() {
     console.log("open test")
     learning = 0
     var testPart = document.getElementById("testPart")
-    if (testPart.value == "Learning3") {
-        document.getElementById("ilP3").style.display = "none"
 
-        document.getElementById("btnTest").style.display = "none"
-        document.getElementById("btnNext").style.display = "none"
 
-        document.getElementById("ilP3T").style.display = "block"
 
-        document.getElementById("p4").style.visibility = "visible"
-        document.getElementById("p5").style.visibility = "visible"
-        document.getElementById("m7").style.visibility = "visible"
-        document.getElementById("M7").style.visibility = "visible"
 
-        document.getElementById("m3").style.display = "none"
-        document.getElementById("M3").style.display = "none"
 
-        document.getElementById("testPart").value = "Test3"
-        results[results.length] = "Test3"
-        shuffledSongs = shuffleSongs(songNamesL3)
 
-        test3()
-    }
     if (testPart.value == "Test2") {
-        document.getElementById("ilP3").style.display = "block"
-        document.getElementById("btnNext").style.display = "inline"
-
-        document.getElementById("ilP2T").style.display = "none"
-
-        document.getElementById("p4").style.visibility = "hidden"
-        document.getElementById("p5").style.visibility = "hidden"
-        document.getElementById("m3").style.visibility = "hidden"
-        document.getElementById("M3").style.visibility = "hidden"
-        document.getElementById("p4").style.backgroundColor = ''
-        document.getElementById("p5").style.backgroundColor = ''
-        document.getElementById("m3").style.backgroundColor = ''
-        document.getElementById("M3").style.backgroundColor = ''
-        document.getElementById("p4").style.color = ''
-        document.getElementById("p5").style.color = ''
-        document.getElementById("m3").style.color = ''
-        document.getElementById("M3").style.color = ''
-        document.getElementById("answersHeader").style.display = "none"
-
-
-        document.getElementById("testPart").value = "Learning3"
-
-
-        learning3()
+        hideTest2()
+        document.getElementById("testPart").value = "Learning1"
     }
     if (testPart.value == "Learning2") {
-        document.getElementById("ilP2").style.display = "none"
-
-        document.getElementById("btnTest").style.display = "none"
-        document.getElementById("btnNext").style.display = "none"
-
-        document.getElementById("ilP2T").style.display = "block"
-
-        document.getElementById("p4").style.visibility = "visible"
-        document.getElementById("p5").style.visibility = "visible"
-        document.getElementById("m3").style.visibility = "visible"
-        document.getElementById("M3").style.visibility = "visible"
-        document.getElementById("p4").style.backgroundColor = 'rgb(246, 135, 46)'
-        document.getElementById("p5").style.backgroundColor = 'rgb(180, 3, 24)'
-        document.getElementById("m3").style.backgroundColor = 'rgb(70, 133, 191)'
-        document.getElementById("M3").style.backgroundColor = 'rgb(154, 231, 118)'
-        document.getElementById("p4").style.color = 'white'
-        document.getElementById("p5").style.color = 'white'
-        document.getElementById("m3").style.color = 'white'
-        document.getElementById("M3").style.color = 'white'
-        document.getElementById("m6").style.display = "none"
-        document.getElementById("M6").style.display = "none"
+        hideLearning2()
+        showTest2()
 
         document.getElementById("testPart").value = "Test2"
         results[results.length] = "Test2"
@@ -501,40 +445,16 @@ function openTest() {
         shuffledSongs = shuffleSongs(songNamesL2)
         test2()
     }
-
     if (testPart.value == "Test1") {
-        document.getElementById("ilP2").style.display = "block"
-
-        document.getElementById("btnNext").style.display = "inline"
-
-        document.getElementById("ilP1T").style.display = "none"
-
-        document.getElementById("p4").style.visibility = "hidden"
-        document.getElementById("p5").style.visibility = "hidden"
-        document.getElementById("m6").style.visibility = "hidden"
-        document.getElementById("M6").style.visibility = "hidden"
-
-        document.getElementById("answersHeader").style.display = "none"
-
+        hideTest1()
+        showLearning2()
         document.getElementById("testPart").value = "Learning2"
-
-
         learning2()
     }
 
     if (testPart.value == "Learning1") {
-
-
-        document.getElementById("ilP1").style.display = "none"
-        document.getElementById("btnTest").style.display = "none"
-        document.getElementById("btnNext").style.display = "none"
-
-        document.getElementById("ilP1T").style.display = "block"
-
-        document.getElementById("p4").style.visibility = "visible"
-        document.getElementById("p5").style.visibility = "visible"
-        document.getElementById("m6").style.visibility = "visible"
-        document.getElementById("M6").style.visibility = "visible"
+        hideLearning1()
+        showTest1()
 
         document.getElementById("testPart").value = "Test1"
         results[results.length] = "Test1"
@@ -542,34 +462,34 @@ function openTest() {
         shuffledSongs = shuffleSongs(songNamesL1)
         test1()
     }
-
-    if (testPart.value == "Test0") {
-        document.getElementById("ilP0T").style.display = "none"
-
-        document.getElementById("ilP1").style.display = "block"
-
-        document.getElementById("p4").style.visibility = "hidden"
-        document.getElementById("p5").style.visibility = "hidden"
-        document.getElementById("btnNext").style.display = "inline"
-        document.getElementById("answersHeader").style.display = "none"
-
+    if (testPart.value == "Test3") {
+        hideTest3()
+        showLearning1()
         document.getElementById("testPart").value = "Learning1"
-
         learning1()
+    }
+    if (testPart.value == "Learning3") {
+
+        hideLearning3()
+        showTest3()
+
+        document.getElementById("testPart").value = "Test3"
+        results[results.length] = "Test3"
+        shuffledSongs = shuffleSongs(songNamesL3)
+
+        test3()
+    }
+    if (testPart.value == "Test0") {
+        hideTest0()
+        showLearning3()
+        document.getElementById("testPart").value = "Learning3"
+        learning3()
     }
 
     if (testPart.value == "Learning0") {
-        document.getElementById("intro").style.display = "none"
 
-        document.getElementById("ilP0").style.display = "none"
-        document.getElementById("btnTest").style.display = "none"
-        document.getElementById("btnNext").style.display = "none"
-
-        document.getElementById("ilP0T").style.display = "block"
-
-        document.getElementById("p4").style.visibility = "visible"
-        document.getElementById("p5").style.visibility = "visible"
-
+        hideLearning0()
+        showTest0()
         document.getElementById("testPart").value = "Test0"
         results[results.length] = "Test0"
 
@@ -579,20 +499,152 @@ function openTest() {
 
 
 }
-
-function createJson() {
-    var json = {};
-
-    var now = new Date();
-    json.id = now;
-
-    json.test = results
-
-    saveJSON(json, 'lion.json');
-    function sendJsonResult(results) {
-        fetch("https://testwebhooks.com/c/artificial-synesthesia", {method: "POST", mode: 'no-cors', body: JSON.stringify(results)}).catch(() => {}).then((response) => console.log("Data has been send"))
-     }
+function showLearning3() {
+    document.getElementById("ilP3").style.display = "block"
+    document.getElementById("btnNext").style.display = "inline"
 }
+
+function showLearning2() {
+    document.getElementById("ilP2").style.display = "block"
+    document.getElementById("btnNext").style.display = "inline"
+}
+function showLearning1() {
+    document.getElementById("ilP1").style.display = "block"
+    document.getElementById("btnNext").style.display = "inline"
+}
+
+function hideTest3() {
+    document.getElementById("ilP3T").style.display = "none"
+    document.getElementById("p4").style.visibility = "hidden"
+    document.getElementById("p5").style.visibility = "hidden"
+    document.getElementById("m7").style.visibility = "hidden"
+    document.getElementById("M7").style.visibility = "hidden"
+
+    document.getElementById("answersHeader").style.display = "none"
+}
+
+function hideTest2() {
+    document.getElementById("ilP2T").style.display = "none"
+
+    document.getElementById("p4").style.visibility = "hidden"
+    document.getElementById("p5").style.visibility = "hidden"
+    document.getElementById("m3").style.visibility = "hidden"
+    document.getElementById("M3").style.visibility = "hidden"
+    document.getElementById("p4").style.backgroundColor = ''
+    document.getElementById("p5").style.backgroundColor = ''
+    document.getElementById("m3").style.backgroundColor = ''
+    document.getElementById("M3").style.backgroundColor = ''
+    document.getElementById("p4").style.color = ''
+    document.getElementById("p5").style.color = ''
+    document.getElementById("m3").style.color = ''
+    document.getElementById("M3").style.color = ''
+    document.getElementById("answersHeader").style.display = "none"
+}
+
+function hideTest1() {
+    document.getElementById("ilP1T").style.display = "none"
+
+    document.getElementById("p4").style.visibility = "hidden"
+    document.getElementById("p5").style.visibility = "hidden"
+    document.getElementById("m6").style.visibility = "hidden"
+    document.getElementById("M6").style.visibility = "hidden"
+
+    document.getElementById("answersHeader").style.display = "none"
+}
+
+function hideTest0() {
+    document.getElementById("ilP0T").style.display = "none"
+    document.getElementById("p4").style.visibility = "hidden"
+    document.getElementById("p5").style.visibility = "hidden"
+    document.getElementById("answersHeader").style.display = "none"
+}
+
+function showTest3() {
+    document.getElementById("ilP3T").style.display = "block"
+
+    document.getElementById("p4").style.visibility = "visible"
+    document.getElementById("p5").style.visibility = "visible"
+    document.getElementById("m7").style.visibility = "visible"
+    document.getElementById("M7").style.visibility = "visible"
+
+    document.getElementById("m3").style.display = "none"
+    document.getElementById("M3").style.display = "none"
+    document.getElementById("m6").style.display = "none"
+    document.getElementById("M6").style.display = "none"
+}
+
+function showTest2() {
+    document.getElementById("ilP2T").style.display = "block"
+
+    document.getElementById("p4").style.visibility = "visible"
+    document.getElementById("p5").style.visibility = "visible"
+    document.getElementById("m3").style.visibility = "visible"
+    document.getElementById("M3").style.visibility = "visible"
+    document.getElementById("m3").style.display = "inline"
+    document.getElementById("M3").style.display = "inline"
+    document.getElementById("p4").style.backgroundColor = 'rgb(246, 135, 46)'
+    document.getElementById("p5").style.backgroundColor = 'rgb(180, 3, 24)'
+    document.getElementById("m3").style.backgroundColor = 'rgb(70, 133, 191)'
+    document.getElementById("M3").style.backgroundColor = 'rgb(154, 231, 118)'
+    document.getElementById("p4").style.color = 'white'
+    document.getElementById("p5").style.color = 'white'
+    document.getElementById("m3").style.color = 'white'
+    document.getElementById("M3").style.color = 'white'
+    document.getElementById("m6").style.display = "none"
+    document.getElementById("M6").style.display = "none"
+}
+
+function showTest1() {
+    document.getElementById("ilP1T").style.display = "block"
+
+    document.getElementById("p4").style.visibility = "visible"
+    document.getElementById("p5").style.visibility = "visible"
+    document.getElementById("m6").style.visibility = "visible"
+    document.getElementById("M6").style.visibility = "visible"
+    document.getElementById("m3").style.display = "none"
+    document.getElementById("M3").style.display = "none"
+    document.getElementById("m7").style.display = "block"
+    document.getElementById("M7").style.display = "block"
+    document.getElementById("m6").style.display = "inline"
+    document.getElementById("M6").style.display = "inline"
+}
+
+function showTest0() {
+    document.getElementById("ilP0T").style.display = "block"
+
+    document.getElementById("p4").style.visibility = "visible"
+    document.getElementById("p5").style.visibility = "visible"
+}
+
+function hideLearning3() {
+    document.getElementById("ilP3").style.display = "none"
+
+    document.getElementById("btnTest").style.display = "none"
+    document.getElementById("btnNext").style.display = "none"
+}
+
+function hideLearning2() {
+    document.getElementById("ilP2").style.display = "none"
+
+    document.getElementById("btnTest").style.display = "none"
+    document.getElementById("btnNext").style.display = "none"
+}
+
+function hideLearning1() {
+    document.getElementById("ilP1").style.display = "none"
+    document.getElementById("btnTest").style.display = "none"
+    document.getElementById("btnNext").style.display = "none"
+}
+
+function hideLearning0() {
+    document.getElementById("intro").style.display = "none"
+
+    document.getElementById("ilP0").style.display = "none"
+    document.getElementById("btnTest").style.display = "none"
+    document.getElementById("btnNext").style.display = "none"
+}
+
+
 
 function saveResult(answer) {
     results[results.length] = answer
@@ -611,12 +663,31 @@ function shuffleSongs(songsArray) {
     return shuffledSongs
 }
 
-function showThanks(){
+function showThanks() {
     document.getElementById("test").style.display = "none"
     document.getElementById("thanks").style.display = "block"
 }
 
-function startTest(){
+function startTest() {
     document.getElementById("consent").style.display = "none"
     document.getElementById("test").style.visibility = "visible"
+}
+
+function sendJsonResult(results) {
+    fetch("https://testwebhooks.com/c/artificial-synesthesia",
+        { method: "POST", mode: 'no-cors', body: JSON.stringify(results) }).catch(() => { }).then((response) => console.log("Data has been send"))
+}
+
+function createJson() {
+    var json = {};
+
+    var now = new Date();
+    json.id = now;
+    json.atype = document.getElementById("testType").value
+
+    json.test = results
+
+    saveJSON(json, 'lion.json');
+    sendJsonResult(json)
+
 }

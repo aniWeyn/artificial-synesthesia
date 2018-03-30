@@ -18,7 +18,7 @@
     <script src="p5/addons/p5.dom.min.js"></script>
     <script src="p5/addons/p5.sound.min.js"></script>
     <script src="p5/empty-example/sketch.js"></script>
-    <script src="p5/empty-example/notes.js"></script>
+    <script src="tests/test1A.js"></script>
 </head>
 
 <body>
@@ -117,8 +117,12 @@
                 <span class="nextInfo">
                     <b>NEXT</b>
                 </span>. You are able to play intervals as long as you wish.</p>
-                <hr>
-            <h4>Your listening: <b><span id="ilP0-title">title</span></b></h4>
+            <hr>
+            <h4>Your listening:
+                <b>
+                    <span id="ilP0-title">title</span>
+                </b>
+            </h4>
             <hr>
         </div>
         <div class="ilP0T" id="ilP0T">
@@ -138,33 +142,55 @@
                 </span> as many times as you wish but you can answer to question only once.
             </p>
             <hr>
-            <h4>Your listening: <b><span id="ilP0T-title">title</span></b></h4>
+            <h4>Your listening:
+                <b>
+                    <span id="ilP0T-title">title</span>
+                </b>
+            </h4>
             <hr>
         </div>
         <div class="ilP1" id="ilP1">
             <h2>Intevals learning - Part 1</h2>
-            <p> In the this part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Sixth and Major Sixth </p>
+            <p> In the this part you will learn to recognize
+                <b>Perfect Fourth</b>,
+                <b>Perfect Fifth</b>,
+                <b>Minor Sixth</b> and
+                <b>Major Sixth</b>
+            </p>
             <hr>
-            <h4>Your listening: <b><span id="ilP1-title">title</span></b></h4>
+            <h4>Your listening:
+                <b>
+                    <span id="ilP1-title">title</span>
+                </b>
+            </h4>
             <hr>
         </div>
         <div class="ilP1T" id="ilP1T">
             <h2>Intevals learning - Test 1</h2>
             <p>Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
             <hr>
-            <h4>Your listening: <b><span id="ilP1T-title">title</span></b></h4>
+            <h4>Your listening:
+                <b>
+                    <span id="ilP1T-title">title</span>
+                </b>
+            </h4>
             <hr>
         </div>
 
-
-
-
         <div class="ilP2" id="ilP2">
             <h2>Intevals learning - Part 2</h2>
-            <p>In the this part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Third and Major Third. </p>
+            <p>In the this part you will learn to recognize
+                <b>Minor Third</b>,
+                <b>Major Third</b>,
+                <b>Perfect Fourth</b>and
+                <b>Perfect Fifth</b>. </p>
             <p> To support learning process to intervals will be represented also by color. Try to use this association.</p>
             <hr>
-            <h4>Your listening: <b><span id="ilP2-title">title</span></b></h4>
+            <h4>Your listening:
+                <b>
+                    <span id="ilP2-title">title</span>
+                </b>
+            </h4>
             <hr>
             <div id='ilP2-color'></div>
         </div>
@@ -173,15 +199,28 @@
             <h2>Intevals learning - Test 2</h2>
             <p>Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
             <hr>
-            <h4>Your listening: <b><span id="ilP2T-title">title</span></b></h4>
+            <h4>Your listening:
+                <b>
+                    <span id="ilP2T-title">title</span>
+                </b>
+            </h4>
             <hr>
         </div>
         <div class="ilP3" id="ilP3">
             <h2>Intevals learning - Part 3</h2>
-            <p>In the this part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Third and Major Third. </p>
+            <p>In the this part you will learn to recognize
+                <b>Perfect Fourth</b>,
+                <b>Perfect Fifth</b>,
+                <b>Minor Seventh</b> and
+                <b>Major Seventh</b>
+            </p>
             <p>To support learning process to intervals will be represented also by picture of animal. Try to use this association.</p>
             <hr>
-            <h4>Your listening: <b><span id="ilP3-title">title</span></b></h4>
+            <h4>Your listening:
+                <b>
+                    <span id="ilP3-title">title</span>
+                </b>
+            </h4>
             <hr>
             <div id='ilP3-picture'></div>
         </div>
@@ -189,8 +228,12 @@
             <h2>Intevals learning - Test 3</h2>
             <p class="ilP3T" id="ilP3Tb">Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
             <hr>
-            <h4>Your listening: <b><span id="ilP3T-title">title</span></b></h4>
-            <hr>           
+            <h4>Your listening:
+                <b>
+                    <span id="ilP3T-title">title</span>
+                </b>
+            </h4>
+            <hr>
             <div class="col-md-12 noLeftPadding" id="ilP3Tb-pictures">
                 <div class="" id='p4-answ'>
                     <img src="/artificial-synesthesia/bootstrap/img/perfectFourth.jpg" height="100" width="100">Perfect Fourth</div>
@@ -212,16 +255,16 @@
         </div>
 
         <div class="col-md-12 noLeftPadding" id="answersHeader">
-                <hr>
-        <h3 >Answers:</h3>
-    </div>
+            <hr>
+            <h3>Answers:</h3>
+        </div>
         <div class="col-md-12 noLeftPadding" id="answersButtons">
+            <button class="btn btn-default btn-lg" id="m3" aria-disabled="false">Minor Third</button>
+            <button class="btn btn-default btn-lg" id="M3" aria-disabled="false">Major Third</button>
             <button class="btn btn-default btn-lg" id="p4" aria-disabled="false">Perfect Fourth</button>
             <button class="btn btn-default btn-lg" id="p5" aria-disabled="false">Perfect Fifth</button>
             <button class="btn btn-default btn-lg" id="m6" aria-disabled="false">Minor Sixth</button>
             <button class="btn btn-default btn-lg" id="M6" aria-disabled="false">Major Sixth</button>
-            <button class="btn btn-default btn-lg" id="m3" aria-disabled="false">Minor Third</button>
-            <button class="btn btn-default btn-lg" id="M3" aria-disabled="false">Major Third</button>
             <button class="btn btn-default btn-lg" id="m7" aria-disabled="false">Minor Seventh</button>
             <button class="btn btn-default btn-lg" id="M7" aria-disabled="false">Major Seventh</button>
         </div>

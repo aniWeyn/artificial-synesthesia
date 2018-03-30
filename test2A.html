@@ -1,59 +1,246 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bootstrap 101 Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <title>Artifical syneshesia.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" maximum-scale=1.0, user-scalable=0>
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="bootstrap/css/custom.css" rel="stylesheet" media="screen">
-  </head>
-  <body>
-      <div class="navbar navAS navbar-inverse navbar-fixed-top">
-          <div class="navbar-inner">
-            <div class="container">
-              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="brand" href="index.html">Artifical syneshesia.</a>
-              <div class="nav-collapse collapse">
-                <ul class="nav">
-                  <li class="active"><a href="test1A.html">Test 1A</a></li>
-                  <li><a href="test1B.html">Test 1B</a></li>
-                  <li><a href="test2A.html">Test 2A</a></li>
-                  <li><a href="test2B.html">Test 2B</a></li>
-                  <li><a href="test3A.html">Test 3A</a></li>
-                  <li><a href="test3B.html">Test 3B</a></li>
-                </ul>
-              </div><!--/.nav-collapse -->
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <script src="p5/p5.min.js"></script>
+    <script src="p5/addons/p5.dom.min.js"></script>
+    <script src="p5/addons/p5.sound.min.js"></script>
+    <script src="p5/empty-example/sketch.js"></script>
+    <script src="tests/test2A.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Artifical syneshesia.</a>
             </div>
-          </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">Test 2A
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-      
-    <div class = "container bodyAS">
-    <h1>Artifical syneshesia.</h1>
-    <h2>Intervals learning</h2>
-    <p>In this part you will learn to recognize few basic music interavls.
-      An interval is a distance between two notes.
-    </p>
-    <h2>Intevals learning - Part 2</h2>
-    <p>In the first part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Third and Major Third. </p>
-    <p>To support learning process to intervals will be represented also by color. Try to use this association.</p>
-    <h2>Intevals learning - Test 2</h2>
-    <p>Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
-    <h2>Intevals learning - Part 1</h2>
-    <p>In the first part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Sixth and Major Sixth  </p>
-    <h2>Intevals learning - Test 1</h2>
-    <p>Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
-    <h2>Intevals learning - Part 3</h2>
-    <p>In the first part you will learn to recognize Perfect Fourth, Perfect Fifth, Minor Third and Major Third. </p>
-    <p>To support learning process to intervals will be represented also by picture of animal. Try to use this association.</p>
-    <h2>Intevals learning - Test 2</h2>
-    <p>Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
-  </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container consent" id="consent">
+        <h2>Written Information and Informed Consent Form The study "Artifical syneshesia. Can color support interval recognition
+            learning process?"</h2>
+        <h3>Objective</h3>
+        <p>Ability to recognize musical intervals (distance between two notes) is a useful skill which might be trained. Some
+            people are able to connect music sounds with colors or others senses. This connection might concerns single notes,
+            chords, key etc. This research is trying to check will music interval supported by displayed color or picture
+            be easier to remeber. This study is conducted by a Master student at NTNU in Gjøvik and is a part of one of the
+            mandatory courses - IMT4315 Color in Interface Design (spring 2018).
+        </p>
+        <h3>Procedure</h3>
+        <p>During the test will be presented four short learning parts where you will be introduced to a basic intervals. The
+            intervals consist of two notes. All intervals starts from the same note and differ from each other by second
+            note. In some learning parts intervals are connected to the colors or pictures. You are encouraged to use that
+            knowledge. After each learning part there will be short test consisted from 8 questions where you will need to
+            recognize interval. After finishing test you might be ask to send back received JSON file.</p>
+        <h3>Duration</h3>
+        <p>10-15 minutes</p>
+        <h3>Confidentality</h3>
+        <p>Your score will be save into JSON file. Participants will be distinguish by date-time stamp and they will be anonimous.
+        </p>
+        <h3>Freedom to withdraw</h3>
+        <p>You may withdraw from the research at any time by closing browser or tab.</p>
+        <h3>Contact</h3>
+        <p>Any question might be answered after mail contact: sabinan@stud.ntnu.no</p>
+        <h3>Declaration of consent</h3>
+        <p>By participating in a study you are confirming that you have read the information and that you are aware that participation
+            is voluntary.</p>
+        <div class="btn-group">
+            <button class="btn btn-success btn-lg" id="btnAgree" aria-disabled="false">I agree, go to the study</button>
+        </div>
+    </div>
+    <!--<div class="container survey">
+            <h2>Short survey</h2>
+            <p>Before study begins please fill this short survey. The survey is not mandatory.</p>
+            ntnu participant // remote participant
+            age
+            gender
+            nationality
+            spakers//headphones
+            have you ever played any instrument
+            are you able to use solmistation notation
+            are you able to use notes notation
+            are you able to use tabs
+            do you know what music interval is 
+            are you able to name heard music intervals: often, sometimes, never
+    </div>-->
+    <div class="container test" id="test">
+        <div class="intro" id="intro">
+            <h2>Intervals learning</h2>
+            <p>In this part you will learn to recognize few basic music interavls. An interval is a distance between two notes.
+            </p>
+        </div>
+        <div class="ilP0" id="ilP0">
+            <h2>Intevals learning - Part 0</h2>
+            <p> In the first part you will learn to recognize
+                <b>Perfect Fourth</b> and
+                <b>Perfect Fifth</b>. Click button
+                <span class="testInfo">
+                    <b>TEST</b>
+                </span> after listening all intervals. To listen interval click button
+                <span class="playInfo">
+                    <b>PLAY</b>
+                </span>. To go to next interval click button
+                <span class="nextInfo">
+                    <b>NEXT</b>
+                </span>. You are able to play intervals as long as you wish.</p>
+                <hr>
+            <h4>Your listening: <b><span id="ilP0-title">title</span></b></h4>
+            <hr>
+        </div>
+        <div class="ilP0T" id="ilP0T">
+            <div class="intro" id="intro">
+                <h2>Intervals learning - Test</h2>
+                <p>Melodic dictando is a popular way of intervals recognition training. Here you can see simplyfied version.
+                </p>
+            </div>
+            <h2>Intevals learning - Test 0</h2>
+            <p> Now you will be asked to recognize heared intervals. Please select interval you have heard. To hear interval
+                click button
+                <span class="playInfo">
+                    <b>PLAY</b>
+                </span>. You can click button
+                <span class="playInfo">
+                    <b>PLAY</b>
+                </span> as many times as you wish but you can answer to question only once.
+            </p>
+            <hr>
+            <h4>Your listening: <b><span id="ilP0T-title">title</span></b></h4>
+            <hr>
+        </div>
+        <div class="ilP1" id="ilP1">
+            <h2>Intevals learning - Part 1</h2>
+            <p> In the this part you will learn to recognize <b>Perfect Fourth</b>, <b>Perfect Fifth</b>, <b>Minor Sixth</b> and <b>Major Sixth</b> </p>
+            <hr>
+            <h4>Your listening: <b><span id="ilP1-title">title</span></b></h4>
+            <hr>
+        </div>
+        <div class="ilP1T" id="ilP1T">
+            <h2>Intevals learning - Test 1</h2>
+            <p>Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
+            <hr>
+            <h4>Your listening: <b><span id="ilP1T-title">title</span></b></h4>
+            <hr>
+        </div>
+
+        <div class="ilP2" id="ilP2">
+            <h2>Intevals learning - Part 2</h2>
+            <p>In the this part you will learn to recognize <b>Minor Third</b>, <b>Major Third</b>, <b>Perfect Fourth</b>and <b>Perfect Fifth</b>. </p>
+            <p> To support learning process to intervals will be represented also by color. Try to use this association.</p>
+            <hr>
+            <h4>Your listening: <b><span id="ilP2-title">title</span></b></h4>
+            <hr>
+            <div id='ilP2-color'></div>
+        </div>
+
+        <div class="ilP2T" id="ilP2T">
+            <h2>Intevals learning - Test 2</h2>
+            <p>Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
+            <hr>
+            <h4>Your listening: <b><span id="ilP2T-title">title</span></b></h4>
+            <hr>
+        </div>
+        <div class="ilP3" id="ilP3">
+            <h2>Intevals learning - Part 3</h2>
+            <p>In the this part you will learn to recognize <b>Perfect Fourth</b>, <b>Perfect Fifth</b>, <b>Minor Seventh</b> and <b>Major Seventh</b></p>
+            <p>To support learning process to intervals will be represented also by picture of animal. Try to use this association.</p>
+            <hr>
+            <h4>Your listening: <b><span id="ilP3-title">title</span></b></h4>
+            <hr>
+            <div id='ilP3-picture'></div>
+        </div>
+        <div class="ilP3T" id="ilP3T">
+            <h2>Intevals learning - Test 3</h2>
+            <p class="ilP3T" id="ilP3Tb">Now you will be asked to recognize heared intervals. Please select interval you have heard.</p>
+            <hr>
+            <h4>Your listening: <b><span id="ilP3T-title">title</span></b></h4>
+            <hr>           
+            <div class="col-md-12 noLeftPadding" id="ilP3Tb-pictures">
+                <div class="" id='p4-answ'>
+                    <img src="/artificial-synesthesia/bootstrap/img/perfectFourth.jpg" height="100" width="100">Perfect Fourth</div>
+                <div class="" id='p5-answ'>
+                    <img src="/artificial-synesthesia/bootstrap/img/perfectFifth.jpg" height="100" width="100">Perfect Fifth</div>
+                <div class="" id='m7-answ'>
+                    <img src="/artificial-synesthesia/bootstrap/img/minorSeventh.jpg" height="100" width="100">Minor Seventh</div>
+                <div class="" id='M7-answ'>
+                    <img src="/artificial-synesthesia/bootstrap/img/majorSeventh.jpg" height="100" width="100">Major Seventh</div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-12 noLeftPadding">
+            <button class="btn btn-success btn-lg" id="btnPlay" aria-disabled="false">PLAY</button>
+            <button class="btn btn-primary btn-lg" id="btnNext" aria-disabled="false">NEXT</button>
+            <button class="btn btn-warning btn-lg" id="btnTest" aria-disabled="false">TEST</button>
+        </div>
+
+        <div class="col-md-12 noLeftPadding" id="answersHeader">
+                <hr>
+        <h3 >Answers:</h3>
+    </div>
+        <div class="col-md-12 noLeftPadding" id="answersButtons">
+            <button class="btn btn-default btn-lg" id="m3" aria-disabled="false">Minor Third</button>
+            <button class="btn btn-default btn-lg" id="M3" aria-disabled="false">Major Third</button>
+            <button class="btn btn-default btn-lg" id="p4" aria-disabled="false">Perfect Fourth</button>
+            <button class="btn btn-default btn-lg" id="p5" aria-disabled="false">Perfect Fifth</button>
+            <button class="btn btn-default btn-lg" id="m6" aria-disabled="false">Minor Sixth</button>
+            <button class="btn btn-default btn-lg" id="M6" aria-disabled="false">Major Sixth</button>
+            <button class="btn btn-default btn-lg" id="m7" aria-disabled="false">Minor Seventh</button>
+            <button class="btn btn-default btn-lg" id="M7" aria-disabled="false">Major Seventh</button>
+        </div>
+
+    </div>
+    <div class="thanks container bodyAS" id="thanks">
+        <h2>Thank you!</h2>
+        <p>You finished your test! Please send JSON file to sabinan@stud.ntnu.no</p>
+    </div>
+    <input type="hidden" name="test" value="Learning0" id="testPart">
+    <input type="hidden" name="testType" value="Test2A" id="testType">
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
- 
-  </body>
+
+</body>
+
 </html>
+
+ <!--   <h2>Intevals learning - Part 2</h2>
+    <h2>Intevals learning - Test 2</h2>
+    <h2>Intevals learning - Part 1</h2>
+    <h2>Intevals learning - Test 1</h2>
+    <h2>Intevals learning - Part 3</h2>
+    <h2>Intevals learning - Test 2</h2>-->
+
