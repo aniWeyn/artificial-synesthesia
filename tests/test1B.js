@@ -70,6 +70,8 @@ var title = ""
 var learning = 0
 var colorCounter = 0
 var jsonFile = ""
+var surveyData = []
+var json = {};
 
 window.onload = function () {
     document.getElementById("btnPlay").onclick = function () { playNoteOnClick() };
@@ -77,6 +79,7 @@ window.onload = function () {
     document.getElementById("btnTest").onclick = function () { openTest() };
     document.getElementById("submitButton").onclick = function () { submitSurvey() };
     document.getElementById("btnAgree").onclick = function () { startTest() };
+    document.getElementById("downloadButton").onclick = function () { downloadJson() };
     document.getElementById("p4").onclick = function () { saveResult("p4") };
     document.getElementById("p5").onclick = function () { saveResult("p5") };
     document.getElementById("m6").onclick = function () { saveResult("m6") };
@@ -701,4 +704,15 @@ function submitSurvey(){
     surveyData[surveyData.length] = document.getElementById("intervals").value 
     surveyData[surveyData.length] = document.getElementById("comments").value 
     createJson()
+}
+
+function downloadJson(){
+    json.atype = document.getElementById("testType").value
+    var now = new Date();
+    json.id = now;
+
+    json.test = results
+    json.survey = surveyData
+
+    saveJSON(json, 'testResults.json');
 }

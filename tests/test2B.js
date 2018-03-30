@@ -69,7 +69,8 @@ var songName = "minorThird"
 var title = ""
 var learning = 0
 var colorCounter = 0
-var jsonFile = ""
+var surveyData = []
+var json = {};
 
 window.onload = function () {
     document.getElementById("btnPlay").onclick = function () { playNoteOnClick() };
@@ -77,6 +78,7 @@ window.onload = function () {
     document.getElementById("btnTest").onclick = function () { openTest() };
     document.getElementById("submitButton").onclick = function () { submitSurvey() };
     document.getElementById("btnAgree").onclick = function () { startTest() };
+    document.getElementById("downloadButton").onclick = function () { downloadJson() };
     document.getElementById("p4").onclick = function () { saveResult("p4") };
     document.getElementById("p5").onclick = function () { saveResult("p5") };
     document.getElementById("m6").onclick = function () { saveResult("m6") };
@@ -446,7 +448,7 @@ function openTest() {
         test1()
     }
     if (testPart.value == "Test3") {
-        hideTest1()
+        hideTest3()
         showLearning1()
         document.getElementById("testPart").value = "Learning1"
         learning1()
@@ -464,9 +466,9 @@ function openTest() {
     }
     if (testPart.value == "Test2") {
         hideTest2()
-        showLearning1()
-        document.getElementById("testPart").value = "Learning1"
-        learning1()
+        showLearning3()
+        document.getElementById("testPart").value = "Learning3"
+        learning3()
     }
     if (testPart.value == "Learning2") {
         hideLearning2()
@@ -605,6 +607,8 @@ function showTest1() {
     document.getElementById("M3").style.display = "none"
     document.getElementById("m6").style.display = "inline"
     document.getElementById("M6").style.display = "inline"
+    document.getElementById("m6").style.visibility = "hidden"
+    document.getElementById("M6").style.visibility = "hidden"
 }
 
 function showTest0() {
@@ -707,4 +711,15 @@ function submitSurvey(){
     surveyData[surveyData.length] = document.getElementById("intervals").value 
     surveyData[surveyData.length] = document.getElementById("comments").value 
     createJson()
+}
+
+function downloadJson(){
+    json.atype = document.getElementById("testType").value
+    var now = new Date();
+    json.id = now;
+
+    json.test = results
+    json.survey = surveyData
+
+    saveJSON(json, 'testResults.json');
 }
