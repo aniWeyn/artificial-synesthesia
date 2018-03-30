@@ -75,6 +75,7 @@ window.onload = function () {
     document.getElementById("btnPlay").onclick = function () { playNoteOnClick() };
     document.getElementById("btnNext").onclick = function () { changeSongName() };
     document.getElementById("btnTest").onclick = function () { openTest() };
+    document.getElementById("submitButton").onclick = function () { submitSurvey() };
     document.getElementById("btnAgree").onclick = function () { startTest() };
     document.getElementById("p4").onclick = function () { saveResult("p4") };
     document.getElementById("p5").onclick = function () { saveResult("p5") };
@@ -84,7 +85,7 @@ window.onload = function () {
     document.getElementById("M3").onclick = function () { saveResult("M3") };
     document.getElementById("m7").onclick = function () { saveResult("m7") };
     document.getElementById("M7").onclick = function () { saveResult("M7") };
-}
+    }
 function setup() {
     // A triangle oscillator
     osc = new p5.TriOsc();
@@ -392,8 +393,7 @@ function changeSongName() {
         if (learning > 7) {
             learning = 0
             console.log("Test1 Learning numer:" + learning)
-            createJson()
-            showThanks()
+            showSurvey()
         }
         else {
             test1()
@@ -676,14 +676,33 @@ function sendJsonResult(results) {
 
 function createJson() {
     var json = {};
-
+    json.atype = document.getElementById("testType").value
     var now = new Date();
     json.id = now;
-    json.atype = document.getElementById("testType").value
 
     json.test = results
+    json.survey = surveyData
 
     saveJSON(json, 'lion.json');
     sendJsonResult(json)
+    showThanks()
 
+}
+
+function showSurvey(){
+    document.getElementById("test").style.display = "none"
+    document.getElementById("survey").style.display = "block"
+}
+
+function submitSurvey(){
+
+    surveyData[surveyData.length] = document.getElementById("nationalty").value 
+    surveyData[surveyData.length] = document.getElementById("age").value 
+    surveyData[surveyData.length] = document.getElementById("country").value 
+    surveyData[surveyData.length] = document.getElementById("gender").value 
+    surveyData[surveyData.length] = document.getElementById("anyInstr").value 
+    surveyData[surveyData.length] = document.getElementById("musicSchool").value 
+    surveyData[surveyData.length] = document.getElementById("intervals").value 
+    surveyData[surveyData.length] = document.getElementById("comments").value 
+    createJson()
 }
