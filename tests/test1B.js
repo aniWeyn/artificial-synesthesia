@@ -659,8 +659,9 @@ function shuffleSongs(songsArray) {
 }
 
 function showThanks() {
-    document.getElementById("test").style.display = "none"
+    document.getElementById("survey").style.display = "none"
     document.getElementById("thanks").style.display = "block"
+    document.getElementById("downloadButton").style.display = "block"
 }
 
 function startTest() {
