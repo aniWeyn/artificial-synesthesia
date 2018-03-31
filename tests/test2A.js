@@ -700,14 +700,16 @@ function showSurvey(){
 }
 
 function submitSurvey(){
-
     surveyData[surveyData.length] = document.getElementById("nationalty").value 
     surveyData[surveyData.length] = document.getElementById("age").value 
     surveyData[surveyData.length] = document.getElementById("country").value 
     surveyData[surveyData.length] = document.getElementById("gender").value 
     surveyData[surveyData.length] = document.getElementById("anyInstr").value 
     surveyData[surveyData.length] = document.getElementById("musicSchool").value 
-    surveyData[surveyData.length] = document.getElementById("intervals").value 
+    surveyData[surveyData.length] = document.getElementById("intervalsBefore").value 
+    surveyData[surveyData.length] = document.getElementById("notation").value 
+    surveyData[surveyData.length] = document.getElementById("intervalsColors").value 
+    surveyData[surveyData.length] = document.getElementById("intervalsPictures").value 
     surveyData[surveyData.length] = document.getElementById("comments").value 
     createJson()
 }
