@@ -71,22 +71,25 @@ var learning = 0
 var colorCounter = 0
 var surveyData = []
 var json = {};
-
+var t0result = 0;
+var t1result = 0;
+var t2result = 0;
+var t3result = 0;
 window.onload = function () {
     document.getElementById("btnPlay").onclick = function () { playNoteOnClick() };
     document.getElementById("btnNext").onclick = function () { changeSongName() };
     document.getElementById("btnTest").onclick = function () { openTest() };
     document.getElementById("submitButton").onclick = function () { submitSurvey() };
     document.getElementById("btnAgree").onclick = function () { startTest() };
-    document.getElementById("downloadButton").onclick = function () { downloadJson() };
-    document.getElementById("p4").onclick = function () { saveResult("p4") };
-    document.getElementById("p5").onclick = function () { saveResult("p5") };
-    document.getElementById("m6").onclick = function () { saveResult("m6") };
-    document.getElementById("M6").onclick = function () { saveResult("M6") };
-    document.getElementById("m3").onclick = function () { saveResult("m3") };
-    document.getElementById("M3").onclick = function () { saveResult("M3") };
-    document.getElementById("m7").onclick = function () { saveResult("m7") };
-    document.getElementById("M7").onclick = function () { saveResult("M7") };
+    document.getElementById("downloadButton").onclick = function () { createTable() };
+    document.getElementById("p4").onclick = function () { saveResult("perfectFourth") };
+    document.getElementById("p5").onclick = function () { saveResult("perfectFifth") };
+    document.getElementById("m6").onclick = function () { saveResult("minorSixth") };
+    document.getElementById("M6").onclick = function () { saveResult("majorSixth") };
+    document.getElementById("m3").onclick = function () { saveResult("minorThird") };
+    document.getElementById("M3").onclick = function () { saveResult("majorThird") };
+    document.getElementById("m7").onclick = function () { saveResult("minorSeventh") };
+    document.getElementById("M7").onclick = function () { saveResult("majorSeventh") };
     }
 function setup() {
     // A triangle oscillator
@@ -385,6 +388,7 @@ function changeSongName() {
         if (learning > 7) {
             learning = 0
             console.log("Test0 Learning numer:" + learning)
+            t0result = countResults()
             openTest()
         }
         else {
@@ -395,6 +399,7 @@ function changeSongName() {
         if (learning > 7) {
             learning = 0
             console.log("Test1 Learning numer:" + learning)
+            t1result = countResults()
             showSurvey()
         }
         else {
@@ -404,6 +409,7 @@ function changeSongName() {
     if (testPart.value == "Test2") {
         if (learning > 7) {
             learning = 0
+            t2result = countResults()
             console.log("Test2 Learning numer:" + learning)
             openTest()
         }
@@ -681,15 +687,19 @@ function sendJsonResult(results) {
 }
 
 function createJson() {
-    var json = {};
     json.atype = document.getElementById("testType").value
     var now = new Date();
     json.id = now;
 
     json.test = results
+   
+    json.t0 = t0result
+    json.t1 = t1result
+    json.t2 = t2result
+    json.t3 = t3result
     json.survey = surveyData
 
-    saveJSON(json, 'testResults.json');
+    createTable()
     sendJsonResult(json)
     showThanks()
 
@@ -715,13 +725,60 @@ function submitSurvey(){
     createJson()
 }
 
-function downloadJson(){
-    json.atype = document.getElementById("testType").value
+function createTable()
+{
+    table = loadTable('/tests/resultsTable.csv', 'csv', 'header');
     var now = new Date();
-    json.id = now;
+    table.addColumn('id');
+    table.addColumn('type');
+    table.addColumn('T0');
+    table.addColumn('T1');
+    table.addColumn('T2');
+    table.addColumn('T3');
+    table.addColumn('nationalty');
+    table.addColumn('age');
+    table.addColumn('country');
+    table.addColumn('gender');
+    table.addColumn('anyInstr');
+    table.addColumn('musicSchool');
+    table.addColumn('intervalsBefore');
+    table.addColumn('notation');
+    table.addColumn('intervalsColors');
+    table.addColumn('intervalsPictures');
+    table.addColumn('comments');
 
-    json.test = results
-    json.survey = surveyData
+    var newRow = table.addRow();
+    newRow.setString('id', now);
+    newRow.setString('type', document.getElementById("testType").value);
+    newRow.setString('T0', t0result);
+    newRow.setString('T1', t1result);
+    newRow.setString('T2', t2result);
+    newRow.setString('T3', t3result);
+    newRow.setString('nationalty', document.getElementById("nationalty").value );
+    newRow.setString('age', document.getElementById("age").value );
+    newRow.setString('country', document.getElementById("country").value );
+    newRow.setString('gender', document.getElementById("gender").value );
+    newRow.setString('anyInstr', document.getElementById("anyInstr").value);
+    newRow.setString('musicSchool', document.getElementById("musicSchool").value );
+    newRow.setString('intervalsBefore', document.getElementById("intervalsBefore").value );
+    newRow.setString('notation', document.getElementById("notation").value);
+    newRow.setString('intervalsColors', document.getElementById("intervalsColors").value );
+    newRow.setString('intervalsPictures', document.getElementById("intervalsPictures").value );
+    newRow.setString('comments', document.getElementById("comments").value );
+    save(table, "test.csv");
+}
 
-    saveJSON(json, 'testResults.json');
+function countResults(){
+    var result = 0;
+    for(var i = 0; i < shuffledSongs.length; i++)
+    {
+        console.log(shuffledSongs[i])
+        console.log(results[i+2])
+        if( JSON.stringify(shuffledSongs[i]) === JSON.stringify(results[i+2]))
+        {
+            result++;
+        }
+    }
+
+    return result;
 }
