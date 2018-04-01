@@ -758,10 +758,10 @@ function createTable()
     var now = new Date();
     table.addColumn('id');
     table.addColumn('type');
-    table.addColumn('T0');
-    table.addColumn('T1');
-    table.addColumn('T2');
-    table.addColumn('T3');
+    table.addColumn('Test0');
+    table.addColumn('Test1');
+    table.addColumn('Test2');
+    table.addColumn('Test3');
     table.addColumn('nationalty');
     table.addColumn('age');
     table.addColumn('country');
