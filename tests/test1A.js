@@ -719,7 +719,7 @@ function submitSurvey(){
 
 function createTable()
 {
-    table = loadTable('/tests/resultsTable.csv', 'csv', 'header');
+    table = loadTable('/artificial-synesthesia/tests/resultsTable.csv', 'csv', 'header');
     var now = new Date();
     table.addColumn('id');
     table.addColumn('type');
