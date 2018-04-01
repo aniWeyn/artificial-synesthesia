@@ -77,6 +77,26 @@ var t1result = 0;
 var t2result = 0;
 var t3result = 0;
 var score = [];
+var dataScience = [];
+var m3result = 0;
+var M3result = 0;
+var p4resultT0 = 0;
+var p5resultT0 = 0;
+var p4resultT1 = 0;
+var p5resultT1 = 0;
+var p4resultT2 = 0;
+var p5resultT2 = 0;
+var p4resultT3 = 0;
+var p5resultT3 = 0;
+var m6result = 0;
+var M6result = 0;
+var m7result = 0;
+var M7result = 0;
+var thirds = 0;
+var fourths = 0;
+var fifths = 0;
+var sixths = 0;
+var sevenths = 0;
 window.onload = function () {
     document.getElementById("btnPlay").onclick = function () { playNoteOnClick() };
     document.getElementById("btnNext").onclick = function () { changeSongName() };
@@ -709,6 +729,29 @@ function createJson() {
     json.t2 = t2result
     json.t3 = t3result
     json.survey = surveyData
+    json.t0 = t0result
+    json.t1 = t1result
+    json.t2 = t2result
+    json.t3 = t3result
+    json.minor3 = m3result
+    json.Major3 = M3result
+    json.minor6 = m6result
+    json.Major6 = m6result
+    json.minor7 = m7result
+    json.Major7 = M7result
+    json.p4resultT0 = p4resultT0
+    json.p5resultT0 = p5resultT0
+    json.p4resultT1 = p4resultT1
+    json.p5resultT1 = p5resultT1
+    json.p4resultT2 = p4resultT2
+    json.p5resultT2 = p5resultT2
+    json.p4resultT3 = p4resultT3
+    json.p5resultT3 = p5resultT3
+    json.thirds = thirds
+    json.fourths = fourths
+    json.fifths = fifths
+    json.sixths = sixths
+    json.sevenths = sevenths
 
     createTable()
     sendJsonResult(json)
@@ -742,10 +785,10 @@ function createTable()
     var now = new Date();
     table.addColumn('id');
     table.addColumn('type');
-    table.addColumn('T0');
-    table.addColumn('T1');
-    table.addColumn('T2');
-    table.addColumn('T3');
+    table.addColumn('Test0');
+    table.addColumn('Test1');
+    table.addColumn('Test2');
+    table.addColumn('Test3');
     table.addColumn('nationalty');
     table.addColumn('age');
     table.addColumn('country');
@@ -757,14 +800,33 @@ function createTable()
     table.addColumn('intervalsColors');
     table.addColumn('intervalsPictures');
     table.addColumn('comments');
+    table.addColumn('minor3');
+    table.addColumn('Major3');
+    table.addColumn('minor6');
+    table.addColumn('Major6');
+    table.addColumn('mino7');
+    table.addColumn('Major7');
+    table.addColumn('p4resultT0');
+    table.addColumn('p5resultT0');
+    table.addColumn('p4resultT1');
+    table.addColumn('p5resultT1');
+    table.addColumn('p4resultT2');
+    table.addColumn('p5resultT2');
+    table.addColumn('p4resultT3');
+    table.addColumn('p5resultT3');
+    table.addColumn('thirds');
+    table.addColumn('fourths');
+    table.addColumn('fifths');
+    table.addColumn('sixths');
+    table.addColumn('sevenths');
 
     var newRow = table.addRow();
     newRow.setString('id', now);
     newRow.setString('type', document.getElementById("testType").value);
-    newRow.setString('T0', t0result);
-    newRow.setString('T1', t1result);
-    newRow.setString('T2', t2result);
-    newRow.setString('T3', t3result);
+    newRow.setString('Test0', t0result);
+    newRow.setString('Test1', t1result);
+    newRow.setString('Test2', t2result);
+    newRow.setString('Test3', t3result);
     newRow.setString('nationalty', document.getElementById("nationalty").value );
     newRow.setString('age', document.getElementById("age").value );
     newRow.setString('country', document.getElementById("country").value );
@@ -776,6 +838,25 @@ function createTable()
     newRow.setString('intervalsColors', document.getElementById("intervalsColors").value );
     newRow.setString('intervalsPictures', document.getElementById("intervalsPictures").value );
     newRow.setString('comments', document.getElementById("comments").value );
+    newRow.setString('minor3', m3result);
+    newRow.setString('Major3', M3result);
+    newRow.setString('minor6', m6result);
+    newRow.setString('Major6', M6result);
+    newRow.setString('mino7', m7result);
+    newRow.setString('Major7', M7result);
+    newRow.setString('p4resultT0',p4resultT0);
+    newRow.setString('p5resultT0',p5resultT0);
+    newRow.setString('p4resultT1',p4resultT1);
+    newRow.setString('p5resultT1',p5resultT1);
+    newRow.setString('p4resultT2',p4resultT2);
+    newRow.setString('p5resultT2',p5resultT2);
+    newRow.setString('p4resultT3',p4resultT3);
+    newRow.setString('p5resultT3',p5resultT3);
+    newRow.setString('thirds',thirds);
+    newRow.setString('fourths',fourths);
+    newRow.setString('fifths',fifths);
+    newRow.setString('sixths',sixths);
+    newRow.setString('sevenths',sevenths);
     save(table, "test.csv");
 }
 
@@ -785,6 +866,84 @@ function countResults(){
         if( JSON.stringify(shuffledSongs[i]) === JSON.stringify(score[i]))
         {
             result++;
+            if(shuffledSongs[i] == "minorThird")
+            {
+                m3result++;
+                thirds++;
+            }
+            if(shuffledSongs[i]  == "majorThird")
+            {
+                M3result++;
+                thirds++;
+            }
+            if(shuffledSongs[i] == "minorSixth")
+            {
+                m6result++;
+                sixths++;
+            }
+            if(shuffledSongs[i] == "majorSixth")
+            {
+                M6result++;
+                sixths++;
+            }
+            if(shuffledSongs[i]  == "minorSeventh")
+            {
+                m7result++;
+                sevenths++;
+            }
+            if(shuffledSongs[i] == "majorSeventh")
+            {
+                M7result++;
+                sevenths++;
+            }
+            if (testPart.value == "Test0") {
+                if(shuffledSongs[i]  == "perfectFourth")
+                {
+                    p4resultT0++;
+                    fourths++;
+                }
+                if(shuffledSongs[i]  == "perfectFifth")
+                {
+                    p5resultT0++;
+                    fifths++;
+                }
+            }
+            if (testPart.value == "Test1") {
+                if(shuffledSongs[i]  == "perfectFourth")
+                {
+                    p4resultT1++;
+                    fourths++;
+                }
+                if(shuffledSongs[i]  == "perfectFifth")
+                {
+                    p5resultT1++;
+                    fifths++;
+                }
+            }
+            if (testPart.value == "Test2") {
+                if(shuffledSongs[i]  == "perfectFourth")
+                {
+                    p4resultT2++;
+                    fourths++;
+                }
+                if(shuffledSongs[i]  == "perfectFifth")
+                {
+                    p5resultT2++;
+                    fifths++;
+                }
+            }
+            if (testPart.value == "Test3") {
+                if(shuffledSongs[i]  == "perfectFourth")
+                {
+                    p4resultT3++;
+                    fourths++;
+                }
+                if(shuffledSongs[i]  == "perfectFifth")
+                {
+                    p5resultT3++;
+                    fifths++;
+                }
+            }
         }
         console.log("shuffled "+ shuffledSongs[i]+", score "+score[i]+", points:"+result)
     }
