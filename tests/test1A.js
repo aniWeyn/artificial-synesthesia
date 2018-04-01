@@ -453,7 +453,7 @@ function openTest() {
         document.getElementById("testPart").value = "Test3"
         results[results.length] = "Test3"
         shuffledSongs = shuffleSongs(songNamesL3)
-
+        score = [];  
         test3()
     }
     if (testPart.value == "Test2") {       
@@ -470,6 +470,7 @@ function openTest() {
         results[results.length] = "Test2"
 
         shuffledSongs = shuffleSongs(songNamesL2)
+        score = [];  
         test2()
     }
     if (testPart.value == "Test1") {
@@ -487,6 +488,7 @@ function openTest() {
         results[results.length] = "Test1"
 
         shuffledSongs = shuffleSongs(songNamesL1)
+        score = [];  
         test1()
     }
 
@@ -505,6 +507,7 @@ function openTest() {
         results[results.length] = "Test0"
 
         shuffledSongs = shuffleSongs(songNamesL0)
+        score = [];  
         test0()
     }
 
