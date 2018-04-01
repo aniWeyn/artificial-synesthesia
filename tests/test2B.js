@@ -426,6 +426,7 @@ function changeSongName() {
         if (learning > 7) {
             learning = 0
             result = 0
+            t3result = countResults()
             console.log("Test3 Learning numer:" + learning)
             openTest()
         }
