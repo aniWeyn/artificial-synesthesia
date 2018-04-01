@@ -69,13 +69,14 @@ var songName = "minorThird"
 var title = ""
 var learning = 0
 var colorCounter = 0
-var jsonFile = ""
 var surveyData = []
 var json = {};
+var result = 0;
 var t0result = 0;
 var t1result = 0;
 var t2result = 0;
 var t3result = 0;
+var score = [];
 
 window.onload = function () {
     document.getElementById("btnPlay").onclick = function () { playNoteOnClick() };
@@ -390,6 +391,7 @@ function changeSongName() {
         if (learning > 7) {
             learning = 0
             console.log("Test0 Learning numer:" + learning)
+            result = 0
             t0result = countResults()
             openTest()
         }
@@ -401,6 +403,7 @@ function changeSongName() {
         if (learning > 7) {
             learning = 0
             console.log("Test1 Learning numer:" + learning)
+            result = 0
             t1result = countResults()
             openTest()
         }
@@ -412,6 +415,7 @@ function changeSongName() {
         if (learning > 7) {
             learning = 0
             console.log("Test2 Learning numer:" + learning)
+            result = 0
             t2result = countResults()
             showSurvey()
         }
@@ -423,6 +427,7 @@ function changeSongName() {
         if (learning > 7) {
             learning = 0
             console.log("Test3 Learning numer:" + learning)
+            result = 0
             t3result = countResults()
             openTest()
         }
@@ -451,6 +456,7 @@ function openTest() {
         results[results.length] = "Test2"
 
         shuffledSongs = shuffleSongs(songNamesL2)
+        score = []; 
         test2()
     }
     if (testPart.value == "Test3") {
@@ -468,6 +474,7 @@ function openTest() {
         results[results.length] = "Test3"
         shuffledSongs = shuffleSongs(songNamesL3)
 
+        score = []; 
         test3()
     }
     if (testPart.value == "Test1") {
@@ -485,6 +492,7 @@ function openTest() {
         results[results.length] = "Test1"
 
         shuffledSongs = shuffleSongs(songNamesL1)
+        score = []; 
         test1()
     }
 
@@ -503,6 +511,7 @@ function openTest() {
         results[results.length] = "Test0"
 
         shuffledSongs = shuffleSongs(songNamesL0)
+        score = []; 
         test0()
     }
 
@@ -651,6 +660,7 @@ function hideLearning0() {
 
 function saveResult(answer) {
     results[results.length] = answer
+    score[score.length] = answer;
     console.log("result:" + results)
     document.getElementById("answersButtons").style.display = "none"
     changeSongName()
@@ -765,16 +775,13 @@ function createTable()
 }
 
 function countResults(){
-    var result = 0;
     for(var i = 0; i < shuffledSongs.length; i++)
     {
-        console.log(shuffledSongs[i])
-        console.log(results[i+2])
-        if( JSON.stringify(shuffledSongs[i]) === JSON.stringify(results[i+2]))
+        if( JSON.stringify(shuffledSongs[i]) === JSON.stringify(score[i]))
         {
             result++;
         }
+        console.log("shuffled "+ shuffledSongs[i]+", score "+score[i]+", points:"+result)
     }
-
     return result;
 }

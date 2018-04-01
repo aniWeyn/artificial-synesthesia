@@ -71,10 +71,12 @@ var learning = 0
 var colorCounter = 0
 var surveyData = []
 var json = {};
+var result = 0;
 var t0result = 0;
 var t1result = 0;
 var t2result = 0;
 var t3result = 0;
+var score = [];
 
 
 window.onload = function () {
@@ -390,6 +392,7 @@ function changeSongName() {
     if (testPart.value == "Test0") {
         if (learning > 7) {
             learning = 0
+            result = 0
             console.log("Test0 Learning numer:" + learning)
             t0result = countResults()
             openTest()
@@ -401,6 +404,7 @@ function changeSongName() {
     if (testPart.value == "Test1") {
         if (learning > 7) {
             learning = 0
+            result = 0
             console.log("Test1 Learning numer:" + learning)
             t1result = countResults()
             openTest()
@@ -412,6 +416,7 @@ function changeSongName() {
     if (testPart.value == "Test2") {
         if (learning > 7) {
             learning = 0
+            result = 0
             console.log("Test2 Learning numer:" + learning)
             t2result = countResults()
             openTest()
@@ -423,6 +428,7 @@ function changeSongName() {
     if (testPart.value == "Test3") {
         if (learning > 7) {
             learning = 0
+            result = 0
             console.log("Test3 Learning numer:" + learning)
             t3result = countResults()
             showSurvey()
@@ -647,6 +653,7 @@ function hideLearning0() {
 
 function saveResult(answer) {
     results[results.length] = answer
+    score[score.length] = answer;
     console.log("result:" + results)
     document.getElementById("answersButtons").style.display = "none"
     changeSongName()
@@ -760,17 +767,15 @@ function createTable()
     save(table, "test.csv");
 }
 
+
 function countResults(){
-    var result = 0;
     for(var i = 0; i < shuffledSongs.length; i++)
     {
-        console.log(shuffledSongs[i])
-        console.log(results[i+2])
-        if( JSON.stringify(shuffledSongs[i]) === JSON.stringify(results[i+2]))
+        if( JSON.stringify(shuffledSongs[i]) === JSON.stringify(score[i]))
         {
             result++;
         }
+        console.log("shuffled "+ shuffledSongs[i]+", score "+score[i]+", points:"+result)
     }
-
     return result;
 }
