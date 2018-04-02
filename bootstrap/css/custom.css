@@ -115,3 +115,11 @@
 #survey{
     display: none;
 }
+
+.usePC{
+color: green;
+}
+
+.doNotUsePhone{
+color: red;
+}
